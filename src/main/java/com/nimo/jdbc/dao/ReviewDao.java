@@ -39,21 +39,22 @@ public class ReviewDao {
 
     // 후기 상세 정보 출력 메소드
     public ReviewVo getReviewDetail(int no){
-        String sql = "SELECT * FROM REVIEW WHERE parcel_pno =" + no;
+        String sql = "SELECT * FROM REVIEW WHERE rno = " + no;
         ReviewVo rv = null;
         try {
             conn = Common.getConnection();
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
+            if(rs.next()){
+                int rno = rs.getInt("rno");
+                String title = rs.getString("title");
+                String content = rs.getString("content");
+                String image = rs.getString("image");
+                String ID = rs.getString("members_id");
+                int pno =rs. getInt("parcel_pno");
+                rv = new ReviewVo(rno, title,content,image,ID, pno);
+            }
 
-            int rno = rs.getInt("rno");
-            String title = rs.getString("title");
-            String content = rs.getString("content");
-            String image = rs.getString("image");
-            String ID = rs.getString("members_id");
-            int pno =rs. getInt("parcel_pno");
-
-            rv = new ReviewVo(rno, title,content,image,ID, pno);
 
         }catch (Exception e){
             e.printStackTrace();

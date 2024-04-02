@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -23,8 +24,10 @@ public class ReviewController {
     }
 
     @GetMapping("/reviewDetail")
-    public String showReviewDetail(@ModelAttribute("boardNo") int boardNo){
-        rDao.getReviewDetail(boardNo);
+    public String showReviewDetail(@RequestParam("rno") int boardNo, Model m){
+        System.out.println(boardNo);
+        ReviewVo rVo = rDao.getReviewDetail(boardNo);
+        m.addAttribute("rno",rVo);
         return "thymeleaf/reviewDetail";
     }
 }
