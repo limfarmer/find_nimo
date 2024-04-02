@@ -12,13 +12,14 @@
             <tr>
                 <th>아이디</th>
                 <th>제목</th>
-
             </tr>
         </thead>
         <tbody>
             <tr th:each="review : ${reviewBoard}">
                 <td th:text="${review.reviewID}"></td>
-                <td><a th:href ="@{'/reviews/' + ${review.reviewID}}" th:text="${review.reviewTitle}"></a></td> <!-- a 태그로 후기 상세페이지 연결하는 a태그 -->
+                <td>
+                    <a th:href ="@{'/review/reviewDetail' + ${review.boardNo}}" th:text="${review.reviewTitle}"></a> <!-- a 태그로 후기 상세페이지 연결하는 a태그 -->
+                </td>
             </tr>
         </tbody>
     </table>
