@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body class="container">
+<h2>사원 정보</h2>
+<a th:href="@{http://localhost:8111/emp/insert}">insert</a>
+<table >
+    <thead>
+    <tr>
+        <th>pno</th>
+        <th>제목</th>
+        <th>글 내용</th>
+        <th>image</th>
+        <th>분양여부</th>
+        <th>글쓴이 아이디</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pp : ${plist}">
+        <td th:text="${pp.pno}"></td>
+        <td th:text="${pp.title}"></td>
+        <td th:text="${pp.content}"></td>
+        <td th:text="${pp.image}"></td>
+        <td th:text="${pp.status}"></td>
+        <td th:text="${pp.members_id}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
