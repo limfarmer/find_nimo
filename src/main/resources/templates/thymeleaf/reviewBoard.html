@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <!-- 후기 게시판 뷰 페이지 -->
-<html lang="en">
+<html xmlns:th="http:/www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/review_css/reviewStyle.css}">
 </head>
-<body>
+<body class="container">
+   <table>
+       <thead>
+            <tr>
+                <th>아이디</th>
+                <th>제목</th>
 
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="review : ${reviewBoard}">
+                <td th:text="${review.reviewID}"></td>
+                <td><a th:href ="@{'/reviews/' + ${review.reviewID}}" th:text="${review.reviewTitle}"></a></td> <!-- a 태그로 후기 상세페이지 연결하는 a태그 -->
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
