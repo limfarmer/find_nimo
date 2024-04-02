@@ -18,7 +18,7 @@ public class ParcelDao {
         try {
             conn = Common.getConnection();
             stmt = conn.createStatement();
-            String query = "SELECT * FROM PARCEL";
+            String query = "select m.nickname, p.pno, p.title, p.content, p.image, m.id  from PARCEL p join MEMBERS m on p.members_id = m.id where p.status=0";
             rs = stmt.executeQuery(query);
 
             while(rs.next()) {
@@ -29,10 +29,11 @@ public class ParcelDao {
                 if(image==null){
                     image = "이미지가 없습니다";
                 }
-                char status = rs.getString("status").charAt(0);
-                String  id = rs.getString("members_id");
+                char status = 0;
+                String  id = rs.getString("id");
+                String nickname = rs.getString("nickname");
 
-                ParcelVo pvo = new ParcelVo(pno,title,content,image,status,id);
+                ParcelVo pvo = new ParcelVo(pno,title,content,image,status,id,nickname);
                 list.add(pvo);
             }
             Common.close(rs);
@@ -43,5 +44,26 @@ public class ParcelDao {
             e.printStackTrace();
         }
         return list;
+    }
+    public void empInsert(ParcelVo pvo) {
+
+        String sql = "insert into PARCEL (pno, title, content, image, status, members_id) values(?,?,?,?,?,?)";
+
+        try {
+            conn = Common.getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, pvo.getPno());
+            pstmt.setString(2, pvo.getTitle());
+            pstmt.setString(3, pvo.getContent());
+            pstmt.setString(4, pvo.getImage());
+            pstmt.setString(5, String.valueOf(0));
+            pstmt.setString(6, pvo.getMembers_id());
+            pstmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Common.close(pstmt);
+        Common.close(conn);
     }
 }

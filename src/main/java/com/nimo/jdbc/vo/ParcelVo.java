@@ -16,5 +16,6 @@ public class ParcelVo {
     private String image;
     private char  status; //(0:분양X / 1:분양O)
     private String members_id;
+    private String nickname;
 
 }

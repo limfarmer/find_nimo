@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" th:href="@{/css/review_css/reviewStyle.css}">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -14,7 +15,7 @@
         <th>제목</th>
         <th>글 내용</th>
         <th>image</th>
-        <th>분양여부</th>
+        <th>글쓴이</th>
         <th>글쓴이 아이디</th>
     </tr>
     </thead>
@@ -24,7 +25,7 @@
         <td th:text="${pp.title}"></td>
         <td th:text="${pp.content}"></td>
         <td th:text="${pp.image}"></td>
-        <td th:text="${pp.status}"></td>
+        <td th:text="${pp.nickname}"></td>
         <td th:text="${pp.members_id}"></td>
     </tr>
     </tbody>
