@@ -1,9 +1,9 @@
-package src.main.java.com.nimo.jdbc.controller;
+package com.nimo.jdbc.controller;
 
-import com.nimo.jdbc.dao.MyPageDao;
-import com.nimo.jdbc.dao.MyPageVo;
-import org.springframework.stereotype.MyPageController;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 @Controller
 @RequestMapping("/myPage")
 public class MyPageController {
