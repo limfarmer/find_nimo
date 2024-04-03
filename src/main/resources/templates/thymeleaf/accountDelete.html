@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>니모를 찾아서</title>
+</head>
+<body class="container">
+<div class="form-container">
+    <h1>정말로 회원 탈퇴하시겠습니까?</h1>
+    <form>
+        <div>
+            탈퇴하실 회원님의 아이디를 입력해 주세요.
+
+            <label for="ID">ID</label>
+            <input type="text" id="ID" th:field="*{ID}" />
+
+            <button type="submit">회원 탈퇴하겠습니다</button>
+
+            <a th:href="@{}">마이 페이지</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>
