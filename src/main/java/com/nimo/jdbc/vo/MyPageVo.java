@@ -1,7 +1,6 @@
 package com.nimo.jdbc.vo;
 
 import lombok.*;
-
 @Getter
 @Setter
 @Data
