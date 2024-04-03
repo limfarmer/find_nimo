@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Employee</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="container">
+<div class="form-container">
+    <h1>회원 정보 수정</h1>
+    <form th:action="@{/mypage/modify}" th:object="${mypageInfo}" method="post">
+        <label for="mypagePW">패스워드</label>
+        <input type="text" id="mypagePW" th:value="${mypageInfo.PW}"/>
+
+        <label for="mypagePhone"></label>
+        <input type="text" id="mypagePhone" th:value="${mypageInfo.PHONE}"/>
+
+        <label for="mypageEmail"></label>
+        <input type="text" id="mypageEmail" th:value="${mypageInfo.EMAIL}"/>
+
+        <label for="mypageNickname"></label>
+        <input type="text" id="mypageNickname" th:value="${mypageInfo.NICKNAME}" th:field="*{NICKNAME}" />
+
+        <input type="text" name="id" value="pkmm" > <!-- th:field="pkmm" 추가 해야되는데 아이디를 넘겨야 업데이트를 확인할수있음 아이디값이 null로 넘어가서 작동안됨 -->
+
+        <button type="submit">수정</button>
+    </form>
+</div>
+</body>
+</html>

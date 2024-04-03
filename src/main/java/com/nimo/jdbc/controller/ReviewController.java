@@ -5,7 +5,6 @@ import com.nimo.jdbc.vo.ReviewVo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -27,7 +26,8 @@ public class ReviewController {
     public String showReviewDetail(@RequestParam("rno") int boardNo, Model m){
         System.out.println(boardNo);
         ReviewVo rVo = rDao.getReviewDetail(boardNo);
-        m.addAttribute("rno",rVo);
+        Model rs = m.addAttribute("rno",rVo);
+        // dao에 rs를 변수로 받는 쏴주는 메소드 만들기
         return "thymeleaf/reviewDetail";
     }
 }

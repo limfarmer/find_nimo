@@ -12,7 +12,7 @@ import lombok.Setter;
 public class AccountVo {
     private String ID;
     private String PW;
-    private int PHONE;
+    private String PHONE;
     private String EMAIL;
     private String NICKNAME;
 

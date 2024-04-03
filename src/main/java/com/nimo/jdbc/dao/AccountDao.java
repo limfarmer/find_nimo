@@ -28,7 +28,7 @@ public class AccountDao {
 
             String ID = rs.getString("ID");
             String PW = rs.getString("PW");
-            int PHONE = rs.getInt("PHONE");
+            String PHONE = rs.getString("PHONE");
             String EMAIL = rs.getString("EMAIL");
             String NICKNAME = rs.getString("NICKNAME");
 
@@ -53,7 +53,7 @@ public class AccountDao {
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, accountVo.getID());
             pstmt.setString(2, accountVo.getPW());
-            pstmt.setInt(3, accountVo.getPHONE());
+            pstmt.setString(3, accountVo.getPHONE());
             pstmt.setString(4, accountVo.getEMAIL());
             pstmt.setString(5, accountVo.getNICKNAME());
             pstmt.executeUpdate();
