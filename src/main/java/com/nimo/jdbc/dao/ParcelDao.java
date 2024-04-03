@@ -45,19 +45,18 @@ public class ParcelDao {
         }
         return list;
     }
-    public void empInsert(ParcelVo pvo) {
+    public void parcelInsert(ParcelVo pvo) {
 
-        String sql = "insert into PARCEL (pno, title, content, image, status, members_id) values(?,?,?,?,?,?)";
+        String sql = "insert into PARCEL (pno, title, content, image, status, members_id) values(PARCEL_PNO.nextval,?,?,?,?,?)";
 
         try {
             conn = Common.getConnection();
             pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, pvo.getPno());
-            pstmt.setString(2, pvo.getTitle());
-            pstmt.setString(3, pvo.getContent());
-            pstmt.setString(4, pvo.getImage());
-            pstmt.setString(5, String.valueOf(0));
-            pstmt.setString(6, pvo.getMembers_id());
+            pstmt.setString(1, pvo.getTitle());
+            pstmt.setString(2, pvo.getContent());
+            pstmt.setString(3, pvo.getImage());
+            pstmt.setString(4, String.valueOf(0));
+            pstmt.setString(5, pvo.getMembers_id());
             pstmt.executeUpdate();
 
         } catch (Exception e) {
