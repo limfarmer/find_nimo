@@ -13,10 +13,11 @@ import java.util.List;
 @Controller
 @RequestMapping("/members")
 public class AccountController {
-    @GetMapping("/membersBoard")
+    @GetMapping("/membersselect")
     public String selectMembers(Model model) {
         AccountDao accountDao = new AccountDao();
-        List<AccountVo> accountVoList = accountDao.memberSelect();
+        String id = "pkmm";
+        AccountVo accountVoList = accountDao.memberSelect(id);
         model.addAttribute("memberslist",accountVoList);
         return "thymeleaf/membersBoard";
 
