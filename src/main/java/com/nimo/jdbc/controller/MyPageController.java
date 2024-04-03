@@ -1,15 +1,15 @@
-package src.main.java.com.nimo.jdbc.controller;
+package com.nimo.jdbc.controller;
 
-import com.nimo.jdbc.dao.MyPageDao;
-import com.nimo.jdbc.dao.MyPageVo;
-import org.springframework.stereotype.MyPageController;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 @Controller
 @RequestMapping("/myPage")
 public class MyPageController {
     // 정보 수정 요청 화면
     @RequestMapping("/modify")
-    public String modify(int ID, Model model) {
+    public void getModify() {
         // 선택한 고객의 정보를 DB에서 조회해온 후 화면에 출력할 수 있도록 Model에 담기
         model.addAttribute("vo", dao.accountModify(ID));
         return "thymeleaf/myPagemodify";

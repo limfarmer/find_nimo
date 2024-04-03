@@ -1,6 +1,7 @@
-package src.main.java.com.nimo.jdbc.vo;
-package src.main.java.com.nimo.jdbc.vo.ParcelVo;
-package src.main.java.com.nimo.jdbc.vo.ReviewVo;
+package com.nimo.jdbc.vo;
+
+import lombok.*;
+
 @Getter
 @Setter
 @Data
