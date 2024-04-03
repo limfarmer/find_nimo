@@ -3,15 +3,11 @@ package com.nimo.jdbc.dao;
 
 import com.nimo.jdbc.common.Common;
 import com.nimo.jdbc.vo.AccountVo;
-import org.yaml.snakeyaml.events.Event;
 
-import java.math.BigDecimal;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-public class AccountDao {
+public class LoginDao {
     Connection conn = null;
     Statement stmt = null;
     PreparedStatement pstmt = null;
@@ -64,6 +60,31 @@ public class AccountDao {
         }
         Common.close(pstmt);
         Common.close(conn);
+    }
+
+    public boolean LoginCheck(String id, String pwd){
+        boolean loginOk = false;
+        try {
+            conn = Common.getConnection();
+            stmt = conn.createStatement();
+            String query = "SELECT * FROM MEMBERS where ID= '"+id+"' and PW='"+pwd+"'";
+            rs = stmt.executeQuery(query);
+
+            if(rs.next()) {
+                loginOk = true;
+            }else {
+                loginOk = false;
+            }
+
+            Common.close(rs);
+            Common.close(stmt);
+            Common.close(conn);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return loginOk;
     }
 
     }
