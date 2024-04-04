@@ -2,29 +2,35 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>New Employee</title>
+    <title>니모를 찾아서</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body class="container">
 <div class="form-container">
     <h1>회원 정보 수정</h1>
     <form th:action="@{/mypage/modify}" th:object="${mypageInfo}" method="post">
-        <label for="mypagePW">패스워드</label>
-        <input type="text" id="mypagePW" th:value="${mypageInfo.PW}" th:field="*{PW}" />
+        <div>
+            <label for="mypagePW">패스워드</label>
+            <input type="text" id="mypagePW" th:value="${mypageInfo.PW}" th:field="*{PW}" />
+        </div>
+        <div>
+            <label for="mypagePhone">전화번호</label>
+            <input type="text" id="mypagePhone" th:value="${mypageInfo.PHONE}" th:field="*{PHONE}" />
+        </div>
+        <div>
+            <label for="mypageEmail">이메일</label>
+            <input type="text" id="mypageEmail" th:value="${mypageInfo.EMAIL}" th:field="*{EMAIL}" />
+        </div>
+        <div>
+            <label for="mypageNickname">닉네임</label>
+            <input type="text" id="mypageNickname" th:value="${mypageInfo.NICKNAME}" th:field="*{NICKNAME}" />
+        </div>
+            <input type="hidden" name="id" value="pkmm" th:text="${id}">
 
-        <label for="mypagePhone"></label>
-        <input type="text" id="mypagePhone" th:value="${mypageInfo.PHONE}" th:field="*{PHONE}" />
-
-        <label for="mypageEmail"></label>
-        <input type="text" id="mypageEmail" th:value="${mypageInfo.EMAIL}" th:field="*{EMAIL}" />
-
-        <label for="mypageNickname"></label>
-        <input type="text" id="mypageNickname" th:value="${mypageInfo.NICKNAME}" th:field="*{NICKNAME}" />
-
-        <input type="hidden" name="id" value="pkmm" th:text="${id}">
-
-        <button type="submit">수정</button>
+        <button type="submit">수정 완료</button>
     </form>
 </div>
 </body>
 </html>
+
+<!--label 태그 사이 추가-->

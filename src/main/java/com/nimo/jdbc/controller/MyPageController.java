@@ -11,8 +11,8 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/mypage")
 public class MyPageController {
-    // 정보 수정 버튼 클릭시 회원 정보를 input 태그에 담아서 화면을 보여주는 Controller
     MyPageDao myPageDao = new MyPageDao(); // 다른 메소드에서도 계속 써서 위로 빼놓음
+    // 정보 수정 버튼 클릭시 회원 정보를 input 태그에 담아서 화면을 보여주는 Controller
     @GetMapping("/modify")
     public String getModifyInfo(Model model, HttpSession sess) {
         String getId =  (String) sess.getAttribute("id");

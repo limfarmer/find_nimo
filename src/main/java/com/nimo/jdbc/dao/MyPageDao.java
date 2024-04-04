@@ -2,6 +2,7 @@ package com.nimo.jdbc.dao;
 
 import com.nimo.jdbc.common.Common;
 import com.nimo.jdbc.vo.AccountVo;
+import com.nimo.jdbc.vo.ParcelVo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,10 +17,11 @@ public class MyPageDao {
     ResultSet rs = null;
     Scanner sc = new Scanner(System.in);
 
-    public AccountVo showMypageMemInfo(String SessID) { // 오류시 SessID 수정해야됨
-        String sql = "SELECT * FROM MEMBERS WHERE id = '" + SessID + "'";
+
+
+    public AccountVo showMypageMemInfo(String SessID) { // 오류시 SessID 수정해야 됨
+        String sql = "SELECT * FROM MEMBERS WHERE id = '" + SessID + "'"; // SessID 주변을 둘러싼 따옴표는 "와 ' 중 하나만?
         AccountVo mypageInfoResult = new AccountVo();
-        System.out.println("SessId 값 넘어오나 디버깅용 in dao : " + SessID);
         try {
             conn = Common.getConnection();
             stmt = conn.createStatement();
@@ -37,11 +39,15 @@ public class MyPageDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        Common.close(rs); // 닫았습니다
+        Common.close(stmt);
+        Common.close(conn);
+
         return mypageInfoResult;
     }
 
     public void updateMypage(AccountVo accountVo, String ID) {
-        String sql = "UPDATE MEMBERS SET PW  = ?, EMAIL = ?, NICKNAME = ?, PHONE = ? WHERE ID = ?"; // 참조키 변해도 되나?확인하기
+        String sql = "UPDATE MEMBERS SET PW  = ?, EMAIL = ?, NICKNAME = ?, PHONE = ? WHERE ID = ?"; // 참조키 변해도 되나? 확인하기
         try {
             conn = Common.getConnection();
             pstmt = conn.prepareStatement(sql);
@@ -62,4 +68,55 @@ public class MyPageDao {
         Common.close(conn);
     }
 
+    // 임정후 : 이 메소드 화면/컨트롤 구현 및 디버깅 필요합니다!
+    public ParcelVo showMyParcelInfo(String SessID) {
+        String sql = "SELECT P.PNO, P.TITLE, P.CONTENT, P.IMAGE, P.STATUS, M.ID, M.NICKNAME,  " +
+                "FROM PARCEL P JOIN MEMBERS M ON P.MEMBERS_ID = M.ID " +
+                "WHERE P.STATUS = 1 AND M.ID = ' + " + SessID + " + '";
+        ParcelVo myParcelInfoResult = new ParcelVo();
+        try {
+            conn = Common.getConnection();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            while(rs.next()) {
+                int pno = rs.getInt("pno");
+                String title = rs.getString("title");
+                String content = rs.getString("content");
+                String image = rs.getString("image");
+                if (image == null) {
+                    image = "이미지가 없습니다";
+                }
+                char status = 0;
+                String members_id = rs.getString("members_id");
+                String nickname = rs.getString("nickname");
+                myParcelInfoResult = new ParcelVo(pno, title, content, image, status, members_id, nickname);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Common.close(rs);
+        Common.close(stmt);
+        Common.close(conn);
+
+        return myParcelInfoResult;
+    }
+    // showMyParcelInfo 메소드가 다 완성되면 그 이후에 구현 예정
+
+//    public void deleteMyInfo() {
+//        System.out.print("삭제할 계정의 ID와 비밀번호를 입력해주세요 : ");
+//        String id = sc.next();
+//        String sql = "DELETE FROM MEMBERS WHERE ID = ? AND PW = ?";
+//
+//        try {
+//            conn = Common.getConnection();
+//            pstmt = conn.prepareStatement(sql); // SQL 쿼리 실행할 때 사용
+//            pstmt.setString(1, id);
+//            pstmt.executeUpdate();
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        Common.close(stmt);
+//        Common.close(conn);
+//    }
 }

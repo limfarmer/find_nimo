@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>니모를 찾아서</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="container">
+<h2>나의 분양 게시판</h2>
+<table>
+    <thead>
+    <tr>
+        <th>분양 게시판 번호</th>
+        <th>제목</th>
+        <th>글쓴이 아이디</th>
+        <th>닉네임</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pp : ${plist}">
+        <td th:text="${pp.pno}"></td>
+        <td th:text="${pp.title}"></td>
+        <td th:text="${pp.members_id}"></td>
+        <td th:text="${pp.nickname}"></td>
+    </tr>
+    </tbody>
+    <div>
+        <a th:href="@{}">회원 정보 수정</a>
+        <a th:href="@{}">회원 탈퇴</a>
+    </div>
+</table>
+</body>
+</html>
