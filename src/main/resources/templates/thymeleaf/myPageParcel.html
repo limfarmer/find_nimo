@@ -12,6 +12,8 @@
     <tr>
         <th>분양 게시판 번호</th>
         <th>제목</th>
+        <th>글 내용</th>
+        <th>사진</th>
         <th>글쓴이 아이디</th>
         <th>닉네임</th>
     </tr>
@@ -20,6 +22,8 @@
     <tr th:each="pp : ${plist}">
         <td th:text="${pp.pno}"></td>
         <td th:text="${pp.title}"></td>
+        <td th:text="${pp.content}"></td>
+        <td th:text="${pp.image}"></td>
         <td th:text="${pp.members_id}"></td>
         <td th:text="${pp.nickname}"></td>
     </tr>
@@ -31,3 +35,5 @@
 </table>
 </body>
 </html>
+
+<!-- 글 내용, 이미지 추가했습니다 -->
