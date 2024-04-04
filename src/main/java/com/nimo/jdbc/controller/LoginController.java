@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/members")
 public class LoginController {
+    // 승용님이 한 로그인 메소드
     @GetMapping("/membersselect")
     public String selectMembers(Model model) {
         LoginDao loginDao = new LoginDao();
@@ -36,7 +37,7 @@ public class LoginController {
 //            String id = (String) session.getAttribute("id"); //다른 controller에서 해당 유저의 id가 필요할 땐 이렇게 쓰세요
             return "redirect:/parcel/pboard"; //main 아직 없음 만들고 다시/ 그리고 여기서 session해주기
         }else {
-            return "redirect:/members/login";
+            return "redirect:/members/login"; // 로그인 실패 했을때
         }
 
     }

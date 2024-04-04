@@ -6,7 +6,7 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MyPageVo {
+public class MyPageVo { // 삭제 필요
     private int pno;
     private int rno;
     private String title;

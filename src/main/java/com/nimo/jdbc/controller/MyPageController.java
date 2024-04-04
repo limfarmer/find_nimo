@@ -6,22 +6,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/mypage")
 public class MyPageController {
-    // 정보 수정 요청 화면
+    // 정보 수정 버튼 클릭시 회원 정보를 input 태그에 담아서 화면을 보여주는 Controller
     MyPageDao myPageDao = new MyPageDao(); // 다른 메소드에서도 계속 써서 위로 빼놓음
     @GetMapping("/modify")
-    public String getModifyInfo(Model model) { // @RequestParam("ID") 나중에 추가 필요
-        // 선택한 고객의 정보를 DB에서 조회해온 후 화면에 출력할 수 있도록 Model에 담기
-        String ID = "pkmm";
-        model.addAttribute("mypageInfo", myPageDao.showMypageMemInfo(ID)); // attribute이름 수정 필요
+    public String getModifyInfo(Model model, HttpSession sess) {
+        String getId =  (String) sess.getAttribute("id");
+        model.addAttribute("mypageInfo", myPageDao.showMypageMemInfo(getId));
         return "thymeleaf/mypageModify";
     }
+    // 회원 정보 수정후 확인버튼 누를시 DB에 정보를 보내주는 Controller
     @PostMapping("/modify")
-    public String mypageUpdate(@ModelAttribute("mypageInfo") AccountVo updateInfo) {
-        System.out.println("nickname : " + updateInfo.getNICKNAME());
-        myPageDao.updateMypage(updateInfo);
+    public String mypageUpdate(@ModelAttribute("mypageInfo") AccountVo updateInfo, HttpSession sess) {
+        String getId =  (String) sess.getAttribute("id");
+        myPageDao.updateMypage(updateInfo,getId);
         return "thymeleaf/mypageMain";
     }
 }
