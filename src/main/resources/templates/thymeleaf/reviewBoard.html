@@ -25,11 +25,6 @@
             </tr>
         </tbody>
     </table>
-    <!-- 후기 작성이나 이 페이지가 아니라 마이페이지로 옮길 예정-->
-   <!-- each 문써야됨 -->
-    <form th:action="@{/review/reviewTest?pno =${}" th:object ="${reviewTest}" method="get">
-        <input type ="text" th:type ="${reviewTest.reviewPno}">
-        <button type ="submit">후기 등록</button>
-    </form>
+
 </body>
 </html>
