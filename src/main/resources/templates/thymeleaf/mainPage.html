@@ -25,7 +25,7 @@
         <tr th:each="pp : ${plist}">
             <td th:text="${pp.pno}" th:name="pno" th:value="${pp.pno}"></td>
             <td>
-                <a th:href="@{/detailPage(pno=${pp.pno})}" th:text="${pp.title}"></a>
+                <a th:href="@{'/parcel/parcel?pno=' + ${pp.pno}}" th:text="${pp.title}"></a>
                 <!--                여기서 detailPage 부분에 parcel 상세 페이지 링크 넣어주세요-->
             </td>
             <td th:text="${pp.content}"></td>

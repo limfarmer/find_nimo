@@ -6,9 +6,8 @@
     <title>Title</title>
 </head>
 <body class="container">
-<h2>사원 정보</h2>
-<p>안녕하세요, <span th:text="${id}"></span>님!</p>
-<a th:href="@{http://localhost:8111/parcel/parcelInsert}">insert</a>
+<h2>글 상세내용</h2>
+<a th:href="@{http://localhost:8111/emp/insert}">insert</a>
 <table >
     <thead>
     <tr>
@@ -21,12 +20,9 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="pp : ${plist}">
+    <tr th:each="pp : ${parcelmain}">
         <td th:text="${pp.pno}"></td>
-        <td>
-            <a th:href="@{'/parcel/parcel?pno=' + ${pp.pno}}" th:text="${pp.title}"></a>
-            <!--                여기서 detailPage 부분에 parcel 상세 페이지 링크 넣어주세요-->
-        </td>
+        <td th:text="${pp.title}"></td>
         <td th:text="${pp.content}"></td>
         <td th:text="${pp.image}"></td>
         <td th:text="${pp.nickname}"></td>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Employee</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="container">
+<div class="form-container">
+    <h1>신규 사원 등록</h1>
+    <form th:action="@{/parcel/parcelinsertt}" th:object="${pinsert}" method="post">
+        <div>
+            <label for="title">제목 입력</label>
+            <input type="text" id="title" th:field="*{title}" />
+        </div>
+        <div>
+            <label for="content">내용 입력해주세요</label>
+            <input type="text" id="content" th:field="*{content}" />
+        </div>
+        <div>
+            <label for="image">이미지</label>
+            <input type="file" id="image" th:field="*{image}" />
+        </div>
+        <div>
+            <button type="submit">등록</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
