@@ -45,6 +45,8 @@ public class ReviewDao {
             conn = Common.getConnection();
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
+            // rs.next는 무조건 선언해야되서 if문으로 감쌌음
+            //rs.next(); rs.isFirst(); if문 없애고 이 두개의 함수 써도됨
             if(rs.next()){
                 int rno = rs.getInt("rno");
                 String title = rs.getString("title");
@@ -62,4 +64,20 @@ public class ReviewDao {
         return rv;
     }
 
+    public void insertReview(ReviewVo rvo,String SessId) {
+        String sql = "INSERT INTO REVIEW(rno, title, content, image, id, pno) " +
+                "VALUES(REVIEW_RNO.nextval, ?, ?, ?, ?, ?)";
+        try{
+            conn = Common.getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(2,rvo.getReviewTitle());
+            pstmt.setString(3,rvo.getReviewContent());
+            pstmt.setString(4,rvo.getReviewImage());
+            pstmt.setString(5,SessId);
+            pstmt.setInt(6,rvo.getReviewPno());
+            pstmt.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
