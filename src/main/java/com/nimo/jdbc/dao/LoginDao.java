@@ -42,7 +42,7 @@ public class LoginDao {
     }
 
     public void memberInsert(AccountVo accountVo) {
-        String sql = "INSERT INTO MEMBERS(ID, PW, PHONE, EMAIL, NICKNAME) VALUES(?,?,?,?,?)";
+        String sql = "insert into MEMBERS (ID, PW, EMAIL, NICKNAME, PHONE) VALUES (?,?,?,?,?)";
 
         try {
             conn = Common.getConnection();

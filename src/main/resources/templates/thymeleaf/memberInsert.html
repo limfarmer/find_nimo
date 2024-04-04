@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Employee</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="container">
+<div class="form-container">
+    <h1>신규 사원 등록</h1>
+    <form th:action="@{/members/meminsert}" th:object="${mlist}" method="post">
+        <div>
+            <label for="id">아이디 입력</label>
+            <input type="text" id="id" th:field="*{ID}" />
+        </div>
+        <div>
+            <label for="pwd">비밀번호</label>
+            <input type="password" id="pwd" th:field="*{PW}" />
+        </div>
+        <div>
+            <label for="email">이메일</label>
+            <input type="email" id="email" th:field="*{EMAIL}" />
+        </div>
+        <div>
+            <label for="nickname">별명</label>
+            <input type="text" id="nickname" th:field="*{NICKNAME}" />
+        </div>
+        <div>
+            <label for="phone">폰번호</label>
+            <input type="text" id="phone" th:field="*{PHONE}" />
+        </div>
+        <div>
+            <button type="submit">등록</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

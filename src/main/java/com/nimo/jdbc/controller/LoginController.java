@@ -39,6 +39,16 @@ public class LoginController {
         }else {
             return "redirect:/members/login"; // 로그인 실패 했을때
         }
-
+    }
+    @GetMapping("/meminsert")
+    public String memberInsert(Model model){
+        model.addAttribute("mlist",new AccountVo());
+        return "thymeleaf/memberInsert";
+    }
+    @PostMapping("/meminsert")
+    public String postmemInsert(@ModelAttribute("mlist") AccountVo avo){
+        LoginDao ldao = new LoginDao();
+        ldao.memberInsert(avo);
+        return "redirect:/members/login";
     }
 }
