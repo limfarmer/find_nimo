@@ -26,6 +26,44 @@
 
         </div>
     </div>
+    <!-- 이걸로 바꿔야됨 -->
+    <!--<div class="form-container">
+
+        <table>
+            <thead>
+            <tr>
+
+                <th>제목</th>
+                <th>글 내용</th>
+                <th>image</th>
+                <th>글쓴이</th>
+                <th>글쓴이 아이디</th>
+            </tr>
+            </thead>
+            <tbody>
+            &lt;!&ndash; parcelmain 리스트에서 각 항목을 순회하며 테이블에 표시 &ndash;&gt;
+            <tr th:each="pp : ${parcelmain}">
+                &lt;!&ndash; 각 데이터 항목을 한 행에 출력 &ndash;&gt;
+
+                <td style="display: none;"> &lt;!&ndash; 숨김 스타일 &ndash;&gt;
+                    <span th:text="${pp.pno}"></span>
+                </td>
+                <td th:text="${pp.title}"></td>
+                <td th:text="${pp.content}"></td>
+                <td th:text="${pp.image}"></td>
+                <td th:text="${pp.nickname}"></td>
+                <td th:text="${pp.members_id}"></td>
+                &lt;!&ndash; 분양받기 버튼과 hidden input &ndash;&gt;
+                <td>
+                    <form th:action="@{/parcel/parcelUpdate}" th:object="${pmain}" method="post">
+                        <input type="hidden" th:name="pno" th:value="${pp.pno}" />
+                        <button type="submit" name="action" value="update">분양받기</button>
+                    </form>
+                </td>
+
+            </tbody>
+        </table>
+    </div>-->
 
 </table>
 </body>

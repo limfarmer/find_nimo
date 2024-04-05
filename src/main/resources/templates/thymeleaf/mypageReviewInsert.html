@@ -11,7 +11,7 @@
 <body>
 <table>
     <div class = "container">
-        <form th:action="@{/review/reviewBoard}" th:object="${reviewTest}" method="post">
+        <form th:action="@{/mypage/reviewTest}" th:object="${reviewTest}" method="post">
             <div class = "title">
                 <h3>제목</h3>
                 <input type="text" id="reviewTitle" th:field="*{reviewTitle}" />
@@ -24,7 +24,10 @@
 
             <div class = "image">
                 <h3>사진</h3>
-                <input type="file" id="reviewImage"  th:field="*{reviewImage}" />
+                <input type="file" id="reviewImage" th:field="*{reviewImage}" />
+            </div>
+            <div class ="reviewPno">
+                <input type="hidden" th:field="${reviewTest.reviewPno}" id="reviewPno" />
             </div>
 
             <div class = "updateButton">

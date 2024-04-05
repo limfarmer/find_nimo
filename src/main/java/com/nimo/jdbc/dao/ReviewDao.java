@@ -65,16 +65,16 @@ public class ReviewDao {
     }
 
     public void insertReview(ReviewVo rvo,String SessId) {
-        String sql = "INSERT INTO REVIEW(rno, title, content, image, id, pno) " +
+        String sql = "INSERT INTO REVIEW(rno, title, content, image, members_id, parcel_pno) " +
                 "VALUES(REVIEW_RNO.nextval, ?, ?, ?, ?, ?)";
         try{
             conn = Common.getConnection();
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(2,rvo.getReviewTitle());
-            pstmt.setString(3,rvo.getReviewContent());
-            pstmt.setString(4,rvo.getReviewImage());
-            pstmt.setString(5,SessId);
-            pstmt.setInt(6,rvo.getReviewPno());
+            pstmt.setString(1,rvo.getReviewTitle());
+            pstmt.setString(2,rvo.getReviewContent());
+            pstmt.setString(3,rvo.getReviewImage());
+            pstmt.setString(4,SessId);
+            pstmt.setInt(5,rvo.getReviewPno());
             pstmt.executeUpdate();
         }catch (Exception e){
             e.printStackTrace();

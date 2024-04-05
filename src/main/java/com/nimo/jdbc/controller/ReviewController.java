@@ -26,7 +26,7 @@ public class ReviewController {
     public String showReviewDetail(@RequestParam("rno") int boardNo, Model m){
         System.out.println(boardNo);
         ReviewVo rVo = rDao.getReviewDetail(boardNo);
-        Model rs = m.addAttribute("rno",rVo);
+        m.addAttribute("rno",rVo);
         // dao에 rs를 변수로 받는 쏴주는 메소드 만들기
         return "thymeleaf/reviewDetail";
     }

@@ -55,21 +55,23 @@ public class MyPageController {
     }
     // mypageParcel.html에서 후기 등록 버튼을 누르면 실행되는 컨트롤러 by 임정후
     @GetMapping("/reviewTestView")
-    public String showReviewInsert(Model m, @RequestParam("pno") ReviewVo pno){
-        m.addAttribute("reviewTest",new ReviewVo());
-        //m.addAttribute("",pno);
+    public String showReviewInsert(Model m, @RequestParam("pno") int pno){
+        System.out.println("pno : " + pno);
+        ReviewVo vo = new ReviewVo();
+        vo.setReviewPno(pno);
+        m.addAttribute("reviewTest",vo);
         return "thymeleaf/mypageReviewInsert";
     }
     //
 
     // mypageReviewInsert.html에서 후기 등록을 누르면 등록을 해주는 컨트롤러
     @PostMapping("/reviewTest")
-    public String insertReview(@RequestParam("pno")int pno ,ReviewVo rvo, HttpSession sess){
+    public String insertReview(@ModelAttribute("reviewTest") ReviewVo rvo, HttpSession sess){
         ReviewDao reviewDao = new ReviewDao();
         String id = (String)sess.getAttribute("id");
         reviewDao.insertReview(rvo,id);
-        rvo.setReviewPno(pno);
-        return "thymeleaf/reviewBoard";
+        //rvo.setReviewPno(pno);
+        return "redirect:/review/reviewBoard";
     }
 
 
