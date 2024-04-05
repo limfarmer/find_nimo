@@ -8,11 +8,11 @@
 <body class="container">
 <div class="form-container">
     <h1>마이 페이지</h1>
-    <p1><span th:text="${id}"></span>님의 My Page</p1> <!--id가 안뜸, 메인 페이지에서 id 값을 넘겨줘야 뜨나 확인필요-->
-    <!-- 여기에 form이 있어서 어떤 메뉴를 눌러도 @{/mypage/modify}이 경로로 가버림-->
+    <p><span th:text="${id}"></span>님의 My Page</p>
     <!--<form th:action ="@{/mypage/modify}" method="get">-->
         <a th:href="@{/mypage/modify}">회원 정보 수정</a>
         <a th:href="@{/mypage/myParcel}">나의 분양 게시판</a>
+        <a th:href="@{/mypage/}">나의 후기 게시판</a>
         <a th:href="@{/mypage/logout}">로그아웃</a>
         <a th:href="@{/mypage/delete}">회원 탈퇴</a>
     <!--</form>-->
@@ -21,3 +21,4 @@
 </html>
 
 <!-- 탈퇴는 고민 중입니다 -->
+<!--http://localhost:8111/mypage/mypageMain-->

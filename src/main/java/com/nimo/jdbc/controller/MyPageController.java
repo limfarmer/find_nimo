@@ -18,8 +18,9 @@ public class MyPageController {
     MyPageDao myPageDao = new MyPageDao(); // 다른 메소드에서도 계속 써서 위로 빼놓음
     // 마이페이지 메인으로 가는 매핑 메소드
     @GetMapping("/mypageMain")
-    public String mypageMain(HttpSession sess) {
-        sess.getAttribute("id");
+    public String mypageMain(Model model ,HttpSession sess) {
+        String id = (String) sess.getAttribute("id");
+        model.addAttribute("id", id);
         return "thymeleaf/mypageMain";
     }
 
