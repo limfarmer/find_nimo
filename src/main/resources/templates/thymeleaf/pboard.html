@@ -8,11 +8,10 @@
 <body class="container">
 <h2>사원 정보</h2>
 <p>안녕하세요, <span th:text="${id}"></span>님!</p>
-<a th:href="@{http://localhost:8111/parcel/parcelInsert}">insert</a>
+<a th:href="@{http://localhost:8111/parcel/parcelInsert}">글쓰기</a>
 <table >
     <thead>
     <tr>
-        <th>pno</th>
         <th>제목</th>
         <th>글 내용</th>
         <th>image</th>
@@ -22,7 +21,9 @@
     </thead>
     <tbody>
     <tr th:each="pp : ${plist}">
-        <td th:text="${pp.pno}"></td>
+        <td style="display: none;"> <!-- 숨김 스타일 -->
+            <span th:text="${pp.pno}"></span>
+        </td>
         <td>
             <a th:href="@{'/parcel/parcel?pno=' + ${pp.pno}}" th:text="${pp.title}"></a>
             <!--여기서 detailPage 부분에 parcel 상세 페이지 링크 넣어주세요-->

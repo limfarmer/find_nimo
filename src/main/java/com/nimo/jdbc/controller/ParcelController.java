@@ -2,6 +2,7 @@ package com.nimo.jdbc.controller;
 
 import com.nimo.jdbc.dao.ParcelDao;
 import com.nimo.jdbc.vo.AccountVo;
+import com.nimo.jdbc.vo.FamilyVo;
 import com.nimo.jdbc.vo.ParcelVo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,10 +44,18 @@ public class ParcelController {
         ParcelDao parcelDao = new ParcelDao();
         String id = (String) session.getAttribute("id");
         pinvo.setMembers_id(id);
-        pinvo.setPno(1);
-        pinvo.setNickname("zcdv");
-        pinvo.setStatus('A');
         parcelDao.parcelInsert(pinvo);
+        return "redirect:/parcel/pboard";
+    }
+    @PostMapping("/parcelUpdate")
+    public String parcelUpdate(@RequestParam("pno") int pnum, HttpSession session) {
+        ParcelDao parcelDao =new ParcelDao();
+        FamilyVo fvo = new FamilyVo();
+        fvo.setPno(pnum);
+        String id = (String) session.getAttribute("id");
+        fvo.setID(id);
+        parcelDao.parcelFamilyUpdate(fvo);
+        parcelDao.parcelStatusUpdate(pnum);
         return "redirect:/parcel/pboard";
     }
 }

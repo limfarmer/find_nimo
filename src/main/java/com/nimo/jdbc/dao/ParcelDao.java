@@ -1,6 +1,7 @@
 package com.nimo.jdbc.dao;
 
 import com.nimo.jdbc.common.Common;
+import com.nimo.jdbc.vo.FamilyVo;
 import com.nimo.jdbc.vo.ParcelVo;
 
 import java.sql.*;
@@ -81,6 +82,20 @@ public class ParcelDao {
         }
         Common.close(pstmt);
         Common.close(conn);
+    }
+    public void parcelFamilyUpdate(FamilyVo fvo) {
+        String sql ="INSERT INTO family (FNO,family.members_id,family.parcel_pno) VALUES(family_fno.nextval,?,?)";
+        try {conn = Common.getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,fvo.getID());
+            pstmt.setInt(2,fvo.getPno());
+            pstmt.executeUpdate();
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }Common.close(pstmt);
+        Common.close(conn);
+
     }
 
     public ParcelVo parcelMain(int pnum) {
