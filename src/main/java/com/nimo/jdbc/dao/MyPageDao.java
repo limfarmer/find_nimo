@@ -19,7 +19,6 @@ public class MyPageDao {
     ResultSet rs = null;
     Scanner sc = new Scanner(System.in);
 
-
     public AccountVo showMypageMemInfo(String SessID) { // 오류 시 SessID 수정해야 됨
         String sql = "SELECT * FROM MEMBERS WHERE id = '" + SessID + "'"; // SessID 주변을 둘러싼 따옴표는 "와 ' 중 하나만?
         AccountVo mypageInfoResult = new AccountVo();
@@ -73,7 +72,6 @@ public class MyPageDao {
     public List<ParcelVo> showMyParcelInfo(String SessID) {
         List<ParcelVo> plist = new ArrayList<>();
         String sql = "SELECT P.PNO, P.TITLE, P.CONTENT, P.IMAGE, P.STATUS, M.ID, M.NICKNAME FROM PARCEL P JOIN MEMBERS M ON P.MEMBERS_ID = M.ID WHERE P.STATUS = 1 AND M.ID = '" + SessID + "'";
-
         try {
             conn = Common.getConnection();
             stmt = conn.createStatement();
@@ -108,31 +106,10 @@ public class MyPageDao {
             conn = Common.getConnection();
             pstmt = conn.prepareStatement(sql);
             pstmt.executeUpdate();
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
         Common.close(pstmt);
         Common.close(conn);
     }
-    // showMyParcelInfo 메소드가 다 완성되면 그 이후에 구현 예정
-
-//    public void deleteMyInfo() {
-//        System.out.print("삭제할 계정의 ID와 비밀번호를 입력해주세요 : ");
-//        String id = sc.next();
-//        String sql = "DELETE FROM MEMBERS WHERE ID = ? AND PW = ?";
-//
-//        try {
-//            conn = Common.getConnection();
-//            pstmt = conn.prepareStatement(sql); // SQL 쿼리 실행할 때 사용
-//            pstmt.setString(1, id);
-//            pstmt.executeUpdate();
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        Common.close(stmt);
-//        Common.close(conn);
-//    }
 }

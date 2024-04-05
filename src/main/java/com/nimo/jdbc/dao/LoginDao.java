@@ -33,8 +33,6 @@ public class LoginDao {
             Common.close(rs);
             Common.close(stmt);
             Common.close(conn);
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -43,7 +41,6 @@ public class LoginDao {
 
     public void memberInsert(AccountVo accountVo) {
         String sql = "insert into MEMBERS (ID, PW, EMAIL, NICKNAME, PHONE) VALUES (?,?,?,?,?)";
-
         try {
             conn = Common.getConnection();
             pstmt = conn.prepareStatement(sql);
@@ -53,8 +50,6 @@ public class LoginDao {
             pstmt.setString(4, accountVo.getEMAIL());
             pstmt.setString(5, accountVo.getNICKNAME());
             pstmt.executeUpdate();
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -75,16 +70,12 @@ public class LoginDao {
             }else {
                 loginOk = false;
             }
-
             Common.close(rs);
             Common.close(stmt);
             Common.close(conn);
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
         return loginOk;
     }
-
-    }
+}

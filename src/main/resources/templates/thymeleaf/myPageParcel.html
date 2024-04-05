@@ -6,7 +6,9 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body class="container">
-<h2>나의 분양 게시판</h2>
+<h1>마이 페이지</h1>
+<div class="form-container">
+    <h2><span style="color: #663399; ">나의 분양 게시판</span></h2>
 <!-- 누르면 나의 분양 리스트를 보여주는 form이라고 생각해서 주석했씁니다
 여기가 아니라 메인페이지에서 마이페이지 버튼을 눌렀을때 작동하는 form일거같습니다. by 임정후 -->
 <!--<form th:action="@{/mypage/myParcel}" th:object="${mypageInfo}" method="post">-->
@@ -40,6 +42,7 @@
         <a th:href="@{/members/deleteok}"><!--<button type="submit">-->회원 탈퇴</a>
     </div>
 </table>
+</div>
 </body>
 </html>
 

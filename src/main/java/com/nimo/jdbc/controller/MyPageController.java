@@ -24,7 +24,6 @@ public class MyPageController {
         model.addAttribute("id", id);
         return "thymeleaf/mypageMain";
     }
-
     // 정보 수정 버튼 클릭 시 회원 정보를 input 태그에 담아서 화면을 보여주는 Controller
     @GetMapping("/modify")
     public String getModifyInfo(Model model, HttpSession sess) {
@@ -47,10 +46,8 @@ public class MyPageController {
         String id = (String) session.getAttribute("id");
         List<ParcelVo> list = myPageDao.showMyParcelInfo(id);
         // ParcelVo vo = myParcel(id); 이 코드는 왜쓴지 몰라서 일단 주석처리했어용 글고 myParcel() 은 이 함수의 이름 이에용 by 임정후
-
         // attribute 이름이 list로 되어있었는데 myPageParcel.html엔 plist로 되어있었어요! by 임
         model.addAttribute("pList", list);
-
         // 저희 html이름인 mypageParcel로 변경 했습니다. by 임정후
         // return "thymeleaf/myParcel";
         return "thymeleaf/myPageParcel";
@@ -64,8 +61,6 @@ public class MyPageController {
         m.addAttribute("reviewTest",vo);
         return "thymeleaf/mypageReviewInsert";
     }
-    //
-
     // mypageReviewInsert.html에서 후기 등록을 누르면 등록을 해주는 컨트롤러
     @PostMapping("/reviewTest")
     public String insertReview(@ModelAttribute("reviewTest") ReviewVo rvo, HttpSession sess){
@@ -84,8 +79,6 @@ public class MyPageController {
         m.addAttribute("deleteMem", accountVo);
         return "thymeleaf/accountDelete";
     }
-
-
     // 우리가 쓸거
      @PostMapping("/deleteAccount")
     public String deleteAccount(@ModelAttribute("deleteMem") AccountVo accountVo,
@@ -101,11 +94,37 @@ public class MyPageController {
         } else {
             return "redirect:/mypage/mypageMain";
         }
-
+    }
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("id");
+        System.out.println("session : "+session.getAttribute("id"));
+        return "redirect:/members/login";
+    }
+/*
+     // 로그아웃 방법 1
+    @RequestMapping("/logout") // post?
+    public String logout(HttpSession sess) {
+        sess.invalidate(); // Session 무효화
+        return "redirect:/main";
+    }
+    // 로그아웃 방법 2
+    @GetMapping("/logoutConfirm") // get => post?
+    public String logoutConfirm(HttpSession sess) {
+        String nextPage = "redirect:/main";
+        sess.invalidate(); // Session 무효화
+        return nextPage;
     }
 
-
-
+    // 로그아웃 방법 3
+    @GetMapping("/logout")
+    public String logout(HttpSession sess) {
+        if(sess != null) {
+            sess.invalidate();
+        }
+        return "thymeleaf/login";
+    }
+*/
     /*
 매개변수로 (@RequestParam("id") int id와 Model model 사용
 Model은 컨트롤러에서 처리한 결과를 화면에 전달하는 역할
@@ -164,31 +183,4 @@ account는 getter를 이용해 내부 접근
 //        AccountVo.delete(id); // delete 빨간색
 //        return "redirect:/account/";
 //    }
-
-
-
-/*
-     // 로그아웃 방법 1
-    @RequestMapping("/logout") // post?
-    public String logout(HttpSession sess) {
-        sess.invalidate(); // Session 무효화
-        return "redirect:/main";
-    }
-    // 로그아웃 방법 2
-    @GetMapping("/logoutConfirm") // get => post?
-    public String logoutConfirm(HttpSession sess) {
-        String nextPage = "redirect:/main";
-        sess.invalidate(); // Session 무효화
-        return nextPage;
-    }
-
-    // 로그아웃 방법 3
-    @GetMapping("/logout")
-    public String logout(HttpSession sess) {
-        if(sess != null) {
-            sess.invalidate();
-        }
-        return "thymeleaf/login";
-    }
-*/
 }
