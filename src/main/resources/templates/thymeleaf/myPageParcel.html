@@ -7,6 +7,9 @@
 </head>
 <body class="container">
 <h2>나의 분양 게시판</h2>
+<!-- 누르면 나의 분양 리스트를 보여주는 form이라고 생각해서 주석했씁니다
+여기가 아니라 메인페이지에서 마이페이지 버튼을 눌렀을때 작동하는 form일거같습니다. by 임정후 -->
+<!--<form th:action="@{/mypage/myParcel}" th:object="${mypageInfo}" method="post">-->
 <table>
     <thead>
     <tr>
@@ -19,21 +22,21 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="pp : ${plist}">
+    <tr th:each="pp : ${pList}">
         <td th:text="${pp.pno}"></td>
         <td th:text="${pp.title}"></td>
         <td th:text="${pp.content}"></td>
         <td th:text="${pp.image}"></td>
         <td th:text="${pp.members_id}"></td>
         <td th:text="${pp.nickname}"></td>
-        <!--<form th:action="@{/review/reviewTest?pno =${plist.pno}" th:object ="${reviewTest}" method="get">
+        <!--<form th:action="@{/mypage/reviewTest?pno =${pList.pno}" th:object ="${reviewTest}" method="get">
             <button type ="submit">후기 등록</button>
         </form>-->
     </tr>
     </tbody>
     <div>
-        <a th:href="@{}">회원 정보 수정</a>
-        <a th:href="@{}">회원 탈퇴</a>
+        <a th:href="@{/mypage/modify}"><!--<button type="submit">-->회원 정보 수정</a> <!-- a 태그랑 button 태그가 같이 있어서 일단 button은 지웠습니다 -->
+        <a th:href="@{/members/deleteok}"><!--<button type="submit">-->회원 탈퇴</a>
     </div>
 </table>
 </body>

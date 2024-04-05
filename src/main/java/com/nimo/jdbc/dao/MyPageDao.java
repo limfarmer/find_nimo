@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MyPageDao {
@@ -18,8 +20,7 @@ public class MyPageDao {
     Scanner sc = new Scanner(System.in);
 
 
-
-    public AccountVo showMypageMemInfo(String SessID) { // 오류시 SessID 수정해야 됨
+    public AccountVo showMypageMemInfo(String SessID) { // 오류 시 SessID 수정해야 됨
         String sql = "SELECT * FROM MEMBERS WHERE id = '" + SessID + "'"; // SessID 주변을 둘러싼 따옴표는 "와 ' 중 하나만?
         AccountVo mypageInfoResult = new AccountVo();
         try {
@@ -33,7 +34,7 @@ public class MyPageDao {
             String email = rs.getString("EMAIL");
             String nickName = rs.getString("NICKNAME");
 
-            //SessID = new AccountVo(id,pw,phone,email,nickName);
+            // SessID = new AccountVo(id, pw, phone, email, nickName);
             mypageInfoResult = new AccountVo(SessID, pw, phone, email, nickName);
 
         } catch (Exception e) {
@@ -62,23 +63,22 @@ public class MyPageDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("sql 디버깅 변경후 닉네임: " + accountVo.getNICKNAME());
+        System.out.println("sql 디버깅 변경 후 닉네임: " + accountVo.getNICKNAME());
 
         Common.close(pstmt);
         Common.close(conn);
     }
 
     // 임정후 : 이 메소드 화면/컨트롤 구현 및 디버깅 필요합니다!
-    public ParcelVo showMyParcelInfo(String SessID) {
-        String sql = "SELECT P.PNO, P.TITLE, P.CONTENT, P.IMAGE, P.STATUS, M.ID, M.NICKNAME,  " +
-                "FROM PARCEL P JOIN MEMBERS M ON P.MEMBERS_ID = M.ID " +
-                "WHERE P.STATUS = 1 AND M.ID = ' + " + SessID + " + '";
-        ParcelVo myParcelInfoResult = new ParcelVo();
+    public List<ParcelVo> showMyParcelInfo(String SessID) {
+        List<ParcelVo> plist = new ArrayList<>();
+        String sql = "SELECT P.PNO, P.TITLE, P.CONTENT, P.IMAGE, P.STATUS, M.ID, M.NICKNAME FROM PARCEL P JOIN MEMBERS M ON P.MEMBERS_ID = M.ID WHERE P.STATUS = 1 AND M.ID = '" + SessID + "'";
+
         try {
             conn = Common.getConnection();
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
-            while(rs.next()) {
+            while (rs.next()) {
                 int pno = rs.getInt("pno");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
@@ -87,9 +87,10 @@ public class MyPageDao {
                     image = "이미지가 없습니다";
                 }
                 char status = 0;
-                String members_id = rs.getString("members_id");
+                String members_id = rs.getString("id"); // members_id로 되어있었는데 sql문은 members테이블의 아이디를 불러오는거였어서 id로 바꿨습니다. by 임씨
                 String nickname = rs.getString("nickname");
-                myParcelInfoResult = new ParcelVo(pno, title, content, image, status, members_id, nickname);
+                ParcelVo myParcelInfoResult = new ParcelVo(pno, title, content, image, status, members_id, nickname);
+                plist.add(myParcelInfoResult);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -98,7 +99,7 @@ public class MyPageDao {
         Common.close(stmt);
         Common.close(conn);
 
-        return myParcelInfoResult;
+        return plist;
     }
     // showMyParcelInfo 메소드가 다 완성되면 그 이후에 구현 예정
 

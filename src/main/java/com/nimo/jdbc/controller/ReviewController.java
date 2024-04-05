@@ -32,23 +32,6 @@ public class ReviewController {
     }
 
 
-    //pno,id(sess)로 식별
-    // 여기가 아니라 mypage -> 내가 분양 받은 게시판에서 후기버튼 클릭시 이 컨트롤러 실행되야됨
-    // 나중에 분양받은 게시판 생기면 옮기기
-    @GetMapping("/reviewTestView")
-    public String showReviewInsert(Model m){
-        m.addAttribute("reviewTest",new ReviewVo());
-        return "thymeleaf/reviewInsert";
-    }
 
-    @GetMapping("/reviewTest")
-    public String insertReview(@RequestParam("pno")int pno ,@ModelAttribute("reviewTest")ReviewVo rvo, HttpSession sess){
-        ReviewDao reviewDao = new ReviewDao(); // 이것도 리뷰dao에 만드는게 맞는지 모르겠음
-        String id = (String)sess.getAttribute("id");
-        reviewDao.insertReview(rvo,id);
-        rvo.setReviewID(id); // 확인 필요
-        rvo.setReviewPno(pno);
-        rvo.setRno(7);
-        return "thymeleaf/reviewBoard";
-    }
+
 }

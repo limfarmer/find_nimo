@@ -16,4 +16,5 @@ public class AccountVo {
     private String EMAIL;
     private String NICKNAME;
 
+
 }
