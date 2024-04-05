@@ -101,6 +101,21 @@ public class MyPageDao {
 
         return plist;
     }
+
+    public void deleteMem(String idid) {
+        String sql = "DELETE FROM MEMBERS WHERE ID = '" + idid + "'";
+        try {
+            conn = Common.getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.executeUpdate();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Common.close(pstmt);
+        Common.close(conn);
+    }
     // showMyParcelInfo 메소드가 다 완성되면 그 이후에 구현 예정
 
 //    public void deleteMyInfo() {

@@ -1,5 +1,6 @@
 package com.nimo.jdbc.controller;
 
+import com.nimo.jdbc.dao.LoginDao;
 import com.nimo.jdbc.dao.MyPageDao;
 import com.nimo.jdbc.dao.ReviewDao;
 import com.nimo.jdbc.vo.AccountVo;
@@ -75,6 +76,34 @@ public class MyPageController {
         return "redirect:/review/reviewBoard";
     }
 
+    @GetMapping("/deleteConfirm")
+    public String memberDelete(HttpSession sess,Model m){
+        String id = (String) sess.getAttribute("id");
+        AccountVo accountVo = new AccountVo();
+        accountVo.setID(id);
+        m.addAttribute("deleteMem", accountVo);
+        return "thymeleaf/accountDelete";
+    }
+
+
+    // 우리가 쓸거
+     @PostMapping("/deleteAccount")
+    public String deleteAccount(@ModelAttribute("deleteMem") AccountVo accountVo,
+                                HttpSession sess, Model model) {
+        LoginDao loginDao = new LoginDao();
+        String idid = accountVo.getID();
+        String pwd = accountVo.getPW();
+        boolean result = loginDao.LoginCheck(idid,pwd); // dao 빨간색
+        if(result) {
+            // 성공
+            myPageDao.deleteMem(idid);
+            return "redirect:/members/login";
+        } else {
+            return "redirect:/mypage/mypageMain";
+        }
+
+    }
+
 
 
     /*
@@ -82,7 +111,59 @@ public class MyPageController {
 Model은 컨트롤러에서 처리한 결과를 화면에 전달하는 역할
 @RequestParam("id") String id는 컨트롤러가 넘겨받은 값 중 id의 값을 받아서 String 변수 id에 값을 넘겨줌
      */
-
+// 삭제 방법 1
+//    @RequestMapping("/delete")
+//    public String getDelete(HttpSession sess, AccountVo avo, RedirectAttributes rttr) { // RedirectAttributes 빨간색
+//        AccountVo account = (AccountVo)sess.getAttribute("account");
+//        String joinPW = account.getPW();
+//        String checkPW = avo.getPW();
+//        if(!(joinPW.equals(checkPW))) {
+//            rttr.addFlashAttribute("msg", false); // addFlashAttribute 빨간색
+//            return "redirect:/account/delete";
+//        }
+//        sess.invalidate();
+//        return "redirect:/";
+//    }
+    /*
+sess.getAttribute("account");를 이용해 로그인할 때 생성되는 세션에서 account값을 받아오기
+sess.getAttribute("account");는 AccountVo의 한 형태
+(AccountVo)sess.getAttribute("account");의 형태로 형변환 가능
+AccountVo의 변수 account에 삽입 가능
+account는 getter를 이용해 내부 접근
+문자열 변수 join에 account에 있는 원래의 비밀번호 넣음
+다른 문자열 변수 check에 회원 탈퇴 페이지에 입력했던 확인용 비밀번호 넣고 두 변수가 가진 값 비교
+부정부호(!)가 있어서 결과 바뀌며 비밀번호가 같으면 false가 되어 넘어감
+비밀번호가 다르다면 true가 되어 조건문 내부 코드 작동하고 html로 이동해서 msg와 그 값인 false를 넘겨주게 됨
+*/
+//    // 삭제 방법 2
+//    @RequestMapping("/deleteAccount")
+//    public String deleteAccount(String id, String pw, HttpSession sess) {
+//        String result = myPageDao.deleteAccount(id, pw); // dao 빨간색
+//        if(result > 0) {
+//            sess.invalidate();
+//            return "redirect:/logout";
+//        } else {
+//            return "redirect:/";
+//        }
+//        return result;
+//    }
+//    // 삭제 방법 3
+//    @RequestMapping("/deleteAccount")
+//    public String deleteAccount(@SessionAttribute AccountVo avo) {
+//        String result1 = avo.deleteAccount(avo.getID()); // deleteAccout 빨간색
+//        String result2 = avo.deleteAccount(avo.getPW()); // deleteAccout 빨간색
+//        if(result > 0) { // result 빨간색
+//            return "redirect:/logout";
+//        } else {
+//            return "redirect:/";
+//        }
+//    }
+//    // 삭제 방법 4
+//    @GetMapping("/account/delete")
+//    public String delete(@PathVariable Long id, Long pw) {
+//        AccountVo.delete(id); // delete 빨간색
+//        return "redirect:/account/";
+//    }
 
 
 
@@ -110,57 +191,4 @@ Model은 컨트롤러에서 처리한 결과를 화면에 전달하는 역할
         return "thymeleaf/login";
     }
 */
-    // 삭제 방법 1
-//    @RequestMapping("/delete")
-//    public String getDelete(HttpSession sess, AccountVo avo, RedirectAttributes rttr) { // RedirectAttributes 빨간색
-//        AccountVo account = (AccountVo)sess.getAttribute("account");
-//        String joinPW = account.getPW();
-//        String checkPW = avo.getPW();
-//        if(!(joinPW.equals(checkPW))) {
-//            rttr.addFlashAttribute("msg", false); // addFlashAttribute 빨간색
-//            return "redirect:/account/delete";
-//        }
-//        sess.invalidate();
-//        return "redirect:/";
-//    }
-    /*
-sess.getAttribute("account");를 이용해 로그인할 때 생성되는 세션에서 account값을 받아오기
-sess.getAttribute("account");는 AccountVo의 한 형태
-(AccountVo)sess.getAttribute("account");의 형태로 형변환 가능
-AccountVo의 변수 account에 삽입 가능
-account는 getter를 이용해 내부 접근
-문자열 변수 join에 account에 있는 원래의 비밀번호 넣음
-다른 문자열 변수 check에 회원 탈퇴 페이지에 입력했던 확인용 비밀번호 넣고 두 변수가 가진 값 비교
-부정부호(!)가 있어서 결과 바뀌며 비밀번호가 같으면 false가 되어 넘어감
-비밀번호가 다르다면 true가 되어 조건문 내부 코드 작동하고 html로 이동해서 msg와 그 값인 false를 넘겨주게 됨
-*/
-    // 삭제 방법 2
-//    @RequestMapping("/deleteAccount")
-//    public String deleteAccount(String id, String pw, HttpSession sess) {
-//        String result = dao.deleteAccount(id, pw); // dao 빨간색
-//        return result;
-//        if(result > 0) {
-//            sess.invalidate();
-//            return "redirect:/logout";
-//        } else {
-//            return "redirect:/";
-//        }
-//    }
-//    // 삭제 방법 3
-//    @RequestMapping("/deleteAccount")
-//    public String deleteAccount(@SessionAttribute AccountVo avo) {
-//        String result1 = avo.deleteAccount(avo.getID()); // deleteAccout 빨간색
-//        String result2 = avo.deleteAccount(avo.getPW()); // deleteAccout 빨간색
-//        if(result > 0) { // result 빨간색
-//            return "redirect:/logout";
-//        } else {
-//            return "redirect:/";
-//        }
-//    }
-//    // 삭제 방법 4
-//    @GetMapping("/account/delete")
-//    public String delete(@PathVariable Long id, Long pw) {
-//        AccountVo.delete(id); // delete 빨간색
-//        return "redirect:/account/";
-//    }
 }
