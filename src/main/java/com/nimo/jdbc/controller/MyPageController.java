@@ -51,23 +51,24 @@ public class MyPageController {
 
         // 저희 html이름인 mypageParcel로 변경 했습니다. by 임정후
         // return "thymeleaf/myParcel";
-        return "thymeleaf/mypageParcel";
+        return "thymeleaf/myPageParcel";
     }
     // mypageParcel.html에서 후기 등록 버튼을 누르면 실행되는 컨트롤러 by 임정후
     @GetMapping("/reviewTestView")
-    public String showReviewInsert(Model m){
+    public String showReviewInsert(Model m, @RequestParam("pno") ReviewVo pno){
         m.addAttribute("reviewTest",new ReviewVo());
-        return "thymeleaf/reviewInsert";
+        //m.addAttribute("",pno);
+        return "thymeleaf/mypageReviewInsert";
     }
+    //
+
     // mypageReviewInsert.html에서 후기 등록을 누르면 등록을 해주는 컨트롤러
-    @GetMapping("/reviewTest")
-    public String insertReview(@RequestParam("pno")int pno ,@ModelAttribute("reviewTest")ReviewVo rvo, HttpSession sess){
-        ReviewDao reviewDao = new ReviewDao(); // 이것도 리뷰dao에 만드는게 맞는지 모르겠음
+    @PostMapping("/reviewTest")
+    public String insertReview(@RequestParam("pno")int pno ,ReviewVo rvo, HttpSession sess){
+        ReviewDao reviewDao = new ReviewDao();
         String id = (String)sess.getAttribute("id");
         reviewDao.insertReview(rvo,id);
-        rvo.setReviewID(id); // 확인 필요
         rvo.setReviewPno(pno);
-        rvo.setRno(7);
         return "thymeleaf/reviewBoard";
     }
 

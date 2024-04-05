@@ -19,6 +19,7 @@
         <th>사진</th>
         <th>글쓴이 아이디</th>
         <th>닉네임</th>
+        <th>후기 작성</th>
     </tr>
     </thead>
     <tbody>
@@ -29,9 +30,11 @@
         <td th:text="${pp.image}"></td>
         <td th:text="${pp.members_id}"></td>
         <td th:text="${pp.nickname}"></td>
-        <!--<form th:action="@{/mypage/reviewTest?pno =${pList.pno}" th:object ="${reviewTest}" method="get">
-            <button type ="submit">후기 등록</button>
-        </form>-->
+        <td>
+            <a th:href="@{'/mypage/reviewTestView?pno=' + ${pp.pno}}">후기 등록</a>
+        </td>
+
+        <!-- <a th:href="@{'/parcel/parcel?pno=' + ${pp.pno}}" th:text="${pp.title}"></a>-->
     </tr>
     </tbody>
     <div>
