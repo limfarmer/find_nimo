@@ -15,23 +15,19 @@ import java.util.List;
 @RequestMapping("/review")
 public class ReviewController {
     ReviewDao rDao = new ReviewDao();
+    // 후기 게시판 리스트 보여주는 컨트롤러
     @GetMapping("/reviewBoard")
     public String showReivewBoard(Model m){
         List<ReviewVo> reviewList = rDao.getReviewBoardList();
         m.addAttribute("reviewBoard",reviewList);
         return "thymeleaf/reviewBoard";
     }
-
+    // 후기 상세 정보 보여주는 컨트롤러
     @GetMapping("/reviewDetail")
-    public String showReviewDetail(@RequestParam("rno") int boardNo, Model m){
-        System.out.println(boardNo);
-        ReviewVo rVo = rDao.getReviewDetail(boardNo);
-        m.addAttribute("rno",rVo);
+    public String showReviewDetail(@RequestParam("rno") int rno, Model m){
+        ReviewVo rVo = rDao.getReviewDetail(rno);
+        m.addAttribute("reviewDetail",rVo);
         // dao에 rs를 변수로 받는 쏴주는 메소드 만들기
         return "thymeleaf/reviewDetail";
     }
-
-
-
-
 }

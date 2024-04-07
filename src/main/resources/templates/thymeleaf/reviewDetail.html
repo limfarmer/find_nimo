@@ -5,25 +5,30 @@
     <title>후기 상세 내용</title>
     <link rel="stylesheet" th:href="@{/css/reviewStyle.css}">
 </head>
-<body class="container">
+<body >
 <table>
-<!--    <thead>-->
-<!--    <tr>-->
-<!--        <th>번호</th>-->
-<!--        <th>아이디</th>-->
-<!--        <th>제목</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
+    <!--    <thead>-->
+    <!--    <tr>-->
+    <!--        <th>번호</th>-->
+    <!--        <th>아이디</th>-->
+    <!--        <th>제목</th>-->
+    <!--    </tr>-->
+    <!--    </thead>-->
 
-    <div class = "reviewDetail">
-        <div>
-            <h1 th:text ="${reviewDetail.title}"></h1>
+    <div class="container">
+        <div class="reviewTitle">
+            <span th:text="${reviewDetail.reviewTitle}"></span>
         </div>
-        <div>
-
+        <div class="reviewContent">
+            <span th:text="${reviewDetail.reviewContent}"></span>
         </div>
-        <div>
-
+        <div class="reviewImage">
+            <img th:src="@{'../../static/image/' + ${reviewDetail.reviewImage}}">
+        </div>
+        <div class="backButton">
+            <form th:action="@{/review/reviewBoard}" method="get">
+                <button type="submit">뒤로가기</button>
+            </form>
         </div>
     </div>
     <!-- 이걸로 바꿔야됨 -->

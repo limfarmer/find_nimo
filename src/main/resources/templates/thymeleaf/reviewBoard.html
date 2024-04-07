@@ -4,21 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <title>후기 게시판</title>
-    <link rel="stylesheet" th:href="@{/css/review_css/reviewStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/reviewStyle.css}">
 </head>
 <body class="container">
    <table>
        <thead>
             <tr>
                 <th>번호</th>
-                <th>아이디</th>
+                <th>닉네임</th>
                 <th>제목</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="review : ${reviewBoard}">
                 <td th:text="${review.rno}"></td>
-                <td th:text="${review.reviewID}"></td>
+                <td th:text="${review.reviewNickName}"></td>
                 <td>
                     <a th:href ="@{/review/reviewDetail(rno=${review.rno})}" th:text="${review.reviewTitle}"></a> <!-- a 태그로 후기 상세페이지 연결하는 a태그 -->
                 </td>

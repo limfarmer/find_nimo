@@ -101,6 +101,15 @@ public class MyPageController {
         System.out.println("session : "+session.getAttribute("id"));
         return "redirect:/members/login";
     }
+    // 4/7 마이페이지 나의 후기 게시판 기능추가
+    @GetMapping("mypageReview")
+    public String mypageReview(Model m, HttpSession sess){
+        String id = (String) sess.getAttribute("id");
+        ReviewDao reviewDao = new ReviewDao();
+        List<ReviewVo> list = reviewDao.getMyReview(id);
+        m.addAttribute("mypageReview",list);
+        return "thymeleaf/mypageReviewList";
+    }
 /*
      // 로그아웃 방법 1
     @RequestMapping("/logout") // post?
