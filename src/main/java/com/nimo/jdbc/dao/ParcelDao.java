@@ -28,7 +28,7 @@ public class ParcelDao {
                 String content = rs.getString("content");
                 String image = rs.getString("image");
                 if (image == null) {
-                    image = "이미지가 없습니다";
+                    image = "../image/nimo.jpg";
                 }
                 char status = 0;
                 String id = rs.getString("id");
@@ -111,7 +111,7 @@ public class ParcelDao {
                 String content = rs.getString("content");
                 String image = rs.getString("image");
                 if (image == null) {
-                    image = "이미지가 없습니다";
+                    image = "../image/white.jpg";
                 }
                 char status = 0;
                 String id = rs.getString("id");

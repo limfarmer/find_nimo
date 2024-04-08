@@ -18,7 +18,7 @@ public class ParcelController {
     public String selectParcel(Model model, HttpSession session) {
         ParcelDao parcelDao = new ParcelDao();
         List<ParcelVo> plist = parcelDao.parcelSelect();
-        String id = (String) session.getAttribute("id");
+        String id = (String)session.getAttribute("id");
         model.addAttribute("plist", plist);
         model.addAttribute("id", id);
         return "thymeleaf/pboard";
