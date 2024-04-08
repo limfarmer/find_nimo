@@ -11,14 +11,12 @@
    <table>
        <thead>
             <tr>
-                <th>번호</th>
                 <th>닉네임</th>
                 <th>제목</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="review : ${reviewBoard}">
-                <td th:text="${review.rno}"></td>
                 <td th:text="${review.reviewNickName}"></td>
                 <td>
                     <a th:href ="@{/review/reviewDetail(rno=${review.rno})}" th:text="${review.reviewTitle}"></a> <!-- a 태그로 후기 상세페이지 연결하는 a태그 -->

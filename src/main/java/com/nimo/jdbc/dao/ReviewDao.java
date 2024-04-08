@@ -19,7 +19,7 @@ public class ReviewDao {
 
     // 후기 게시판 목록 출력 메소드
     public List<ReviewVo> getReviewBoardList() {
-        String sql = "SELECT r.rno, r.members_id, r.title, m.NICKNAME  FROM REVIEW r, MEMBERS m WHERE m.ID = r.MEMBERS_ID";
+        String sql = "SELECT r.rno, r.members_id, r.title,r.content, r.image, m.NICKNAME  FROM REVIEW r, MEMBERS m WHERE m.ID = r.MEMBERS_ID";
         List<ReviewVo> list = new ArrayList<>();
         try {
             conn = Common.getConnection();
@@ -29,11 +29,15 @@ public class ReviewDao {
                 int rno = rs.getInt("rno");
                 String membersId = rs.getString("members_id");
                 String title = rs.getString("title");
+                String content = rs.getString("content");
+                String image = rs.getString("image");
                 String nickName = rs.getString("nickname");
                 ReviewVo reviewVo = new ReviewVo();
                 reviewVo.setRno(rno);
                 reviewVo.setReviewID(membersId);
                 reviewVo.setReviewTitle(title);
+                reviewVo.setReviewContent(content);
+                reviewVo.setReviewImage(image);
                 reviewVo.setReviewNickName(nickName);
                 list.add(reviewVo);
             }

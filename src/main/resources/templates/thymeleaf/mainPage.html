@@ -13,17 +13,16 @@
     <table>
         <thead>
         <tr>
-            <th>pno</th>
+            <!--<th>pno</th> -->
             <th>제목</th>
             <th>글 내용</th>
-            <th>image</th>
+            <th>사진</th>
             <th>글쓴이</th>
-            <th>글쓴이 아이디</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="pp,iterStat : ${plist}" th:if="${iterStat.index lt 5}">
-            <td th:text="${pp.pno}" th:name="pno" th:value="${pp.pno}"></td>
+            <td th:text="${pp.pno}" th:name="pno" th:value="${pp.pno}" style="display: none;"></td>
             <td>
                 <a th:href="@{'/parcel/parcel?pno=' + ${pp.pno}}" th:text="${pp.title}"></a>
                 <!--                여기서 detailPage 부분에 parcel 상세 페이지 링크 넣어주세요-->
@@ -31,7 +30,6 @@
             <td th:text="${pp.content}"></td>
             <td th:text="${pp.image}"></td>
             <td th:text="${pp.nickname}"></td>
-            <td th:text="${pp.members_id}"></td>
         </tr>
         <tr>
             <td>
@@ -46,19 +44,21 @@
     <table>
         <thead>
         <tr>
-            <th>번호</th>
-            <th>아이디</th>
             <th>제목</th>
+            <th>글내용</th>
+            <th>사진</th>
+            <th>글쓴이</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="review,iterStat : ${rlist}" th:if="${iterStat.index lt 5}">
-            <td th:text="${review.rno}"></td>
-            <td th:text="${review.reviewID}"></td>
             <td>
                 <a th:href="@{/review/reviewDetail(rno=${review.rno})}" th:text="${review.reviewTitle}"></a>
                 <!-- a 태그로 후기 상세페이지 연결하는 a태그 -->
             </td>
+            <td th:text="${review.reviewContent}"></td>
+            <td th:text="${review.reviewImage}"></td>
+            <td th:text="${review.reviewNickName}"></td>
         </tr>
         <tr>
             <td>
