@@ -77,6 +77,7 @@ public class MyPageDao {
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
 
+
             while (rs.next()) {
                 int pno = rs.getInt("pno");
                 String title = rs.getString("title");
