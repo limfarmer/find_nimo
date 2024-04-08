@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>후기 상세 내용</title>
-    <link rel="stylesheet" th:href="@{/css/reviewStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/cssStyle.css}">
 </head>
+<div th:replace="fragments/header::header"></div>
 <body >
 <table>
     <!--    <thead>-->
@@ -23,7 +24,7 @@
             <span th:text="${reviewDetail.reviewContent}"></span>
         </div>
         <div class="reviewImage">
-            <img th:src="@{'../../static/image/' + ${reviewDetail.reviewImage}}">
+            <img th:src="@{'static/image' + ${reviewDetail.reviewImage}}">
         </div>
         <div class="backButton">
             <form th:action="@{/review/reviewBoard}" method="get">
@@ -71,5 +72,6 @@
     </div>-->
 
 </table>
+<div th:replace="fragments/footer::footer"></div>
 </body>
 </html>

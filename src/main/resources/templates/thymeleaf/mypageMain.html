@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>FIND NIMO!</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/cssStyle.css}">
 </head>
+<div th:replace="fragments/header::header"></div>
 <body class="container">
 <div class="form-container">
     <h1>마이 페이지</h1>
@@ -17,6 +18,7 @@
         <a th:href="@{/mypage/deleteConfirm}">회원 탈퇴</a>
     <!--</form>-->
 </div>
+<div th:replace="fragments/footer::footer"></div>
 </body>
 </html>
 

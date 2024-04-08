@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>후기 게시판</title>
-    <link rel="stylesheet" th:href="@{/css/reviewStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/cssStyle.css}">
 </head>
+<div th:replace="fragments/header::header"></div>
 <body class="container">
    <table>
        <thead>
@@ -25,6 +26,6 @@
             </tr>
         </tbody>
     </table>
-
+<div th:replace="fragments/footer::footer"></div>
 </body>
 </html>

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" th:href="@{/css/review_css/reviewStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/cssStyle.css}">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body class="container">
+<div th:replace="fragments/header::header"></div>
 <h2>메인 페이지</h2>
-<a th:href="@{http://localhost:8111/emp/insert}">insert</a>
 <div>
     <h1>분양 테이블</h1>
     <table>
@@ -22,7 +22,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="pp : ${plist}">
+        <tr th:each="pp,iterStat : ${plist}" th:if="${iterStat.index lt 5}">
             <td th:text="${pp.pno}" th:name="pno" th:value="${pp.pno}"></td>
             <td>
                 <a th:href="@{'/parcel/parcel?pno=' + ${pp.pno}}" th:text="${pp.title}"></a>
@@ -52,7 +52,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="review : ${rlist}">
+        <tr th:each="review,iterStat : ${rlist}" th:if="${iterStat.index lt 5}">
             <td th:text="${review.rno}"></td>
             <td th:text="${review.reviewID}"></td>
             <td>
@@ -68,8 +68,6 @@
         </tbody>
     </table>
 </div>
-<div>
-    <a th:href="@{/mypage/mypageMain}">My Page</a>
-</div>
+<div th:replace="fragments/footer::footer"></div>
 </body>
 </html>

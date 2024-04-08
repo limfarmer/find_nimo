@@ -1,50 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" th:href="@{/css/review_css/reviewStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/cssStyle.css}">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <h2>글 상세내용</h2>
 <body class="container">
+<div th:replace="fragments/header::header"></div>
 <div class="form-container">
     <div class="form-container">
 
-        <table>
-            <thead>
-            <tr>
-
-                <th>제목</th>
-                <th>글 내용</th>
-                <th>image</th>
-                <th>글쓴이</th>
-                <th>글쓴이 아이디</th>
-            </tr>
-            </thead>
-            <tbody>
-            <!-- parcelmain 리스트에서 각 항목을 순회하며 테이블에 표시 -->
-            <tr th:each="pp : ${parcelmain}">
-                <!-- 각 데이터 항목을 한 행에 출력 -->
-
-                <td style="display: none;"> <!-- 숨김 스타일 -->
-                    <span th:text="${pp.pno}"></span>
-                </td>
-                <td th:text="${pp.title}"></td>
-                <td th:text="${pp.content}"></td>
-                <td th:text="${pp.image}"></td>
-                <td th:text="${pp.nickname}"></td>
-                <td th:text="${pp.members_id}"></td>
-                <!-- 분양받기 버튼과 hidden input -->
-                <td>
-                    <form th:action="@{/parcel/parcelUpdate}" th:object="${pmain}" method="post">
-                        <input type="hidden" th:name="pno" th:value="${pp.pno}" />
-                        <button type="submit" name="action" value="update">분양받기</button>
-                    </form>
-                </td>
-
-            </tbody>
-        </table>
+        <div th:each="pp : ${parcelmain}">
+            <form th:action="@{/parcel/parcelUpdate}" th:object="${pmain}" method="post">
+                <div>
+                    <input type="text" readonly="readonly" th:value="${pp.title}"></input>
+                </div>
+                <input type="hidden" th:name="pno" th:value="${pp.pno}"/>
+                <div>
+                    <img th:src="${pp.image}" alt="Image">
+                </div>
+                <div>
+                    <span th:text="${pp.content}"></span>
+                </div>
+                <div>
+                    <span th:text="${pp.nickname}"></span>
+                </div>
+                <button type="submit" name="action" value="update">분양받기</button>
+            </form>
+        </div>
     </div>
 </div>
+<div th:replace="fragments/footer::footer"></div>
 </body>
 </html>

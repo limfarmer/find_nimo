@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 기본 스타일 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 네비게이션바 스타일 */
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #333;
+            padding: 1rem;
+            position: fixed;
+            width : 100%;
+            top : 0;
+
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .navbar a:hover {
+            color: #aaa
+        }
+    </style>
+</head>
+<body>
+<div th:fragment="header">
+    <nav class="navbar">
+        <a th:href="@{/main/mainpage}">니모를 찾아서</a>
+        <a th:href="@{/mypage/mypageMain}">마이 페이지</a>
+
+    </nav>
+</div>
+</body>
+</html>
