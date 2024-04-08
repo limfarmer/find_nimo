@@ -71,21 +71,22 @@ public class MyPageDao {
     // 임정후 : 이 메소드 화면/컨트롤 구현 및 디버깅 필요합니다!
     public List<ParcelVo> showMyParcelInfo(String SessID) {
         List<ParcelVo> plist = new ArrayList<>();
-        String sql = "SELECT P.PNO, P.TITLE, P.CONTENT, P.IMAGE, P.STATUS, M.ID, M.NICKNAME FROM PARCEL P JOIN MEMBERS M ON P.MEMBERS_ID = M.ID WHERE P.STATUS = 1 AND M.ID = '" + SessID + "'";
+        String sql = "select p.title, p.content, p.pno, p.image, p.status, p.members_id, m.nickname from FAMILY f join PARCEL p on f.parcel_pno = p.pno join MEMBERS m on p.members_id = m.id where f.members_id= '"+SessID+"'";
         try {
             conn = Common.getConnection();
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
+
             while (rs.next()) {
                 int pno = rs.getInt("pno");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
                 String image = rs.getString("image");
                 if (image == null) {
-                    image = "이미지가 없습니다";
+                    image = "../image/white.jpg";
                 }
                 char status = 0;
-                String members_id = rs.getString("id"); // members_id로 되어있었는데 sql문은 members테이블의 아이디를 불러오는거였어서 id로 바꿨습니다. by 임씨
+                String members_id = rs.getString("members_id"); // members_id로 되어있었는데 sql문은 members테이블의 아이디를 불러오는거였어서 id로 바꿨습니다. by 임씨
                 String nickname = rs.getString("nickname");
                 ParcelVo myParcelInfoResult = new ParcelVo(pno, title, content, image, status, members_id, nickname);
                 plist.add(myParcelInfoResult);
