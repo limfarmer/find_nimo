@@ -6,43 +6,43 @@
     <link rel="stylesheet" th:href="@{/css/cssStyle.css}">
 </head>
 <div th:replace="fragments/header::header"></div>
-<body class="container">
-<h1>마이 페이지</h1>
-<div class="form-container">
-    <h2><span style="color: #663399; ">나의 분양 게시판</span></h2>
-<!-- 누르면 나의 분양 리스트를 보여주는 form이라고 생각해서 주석했씁니다
-여기가 아니라 메인페이지에서 마이페이지 버튼을 눌렀을때 작동하는 form일거같습니다. by 임정후 -->
-<!--<form th:action="@{/mypage/myParcel}" th:object="${mypageInfo}" method="post">-->
-<table>
-    <thead>
-    <tr>
-        <th>분양 게시판 번호</th>
-        <th>제목</th>
-        <th>글 내용</th>
-        <th>사진</th>
-        <th>글쓴이 아이디</th>
-        <th>닉네임</th>
-        <th>후기 작성</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="pp : ${pList}">
-        <td th:text="${pp.pno}"></td>
-        <td th:text="${pp.title}"></td>
-        <td th:text="${pp.content}"></td>
-        <td th:text="${pp.image}"></td>
-        <td th:text="${pp.members_id}"></td>
-        <td th:text="${pp.nickname}"></td>
-        <td>
-            <a th:href="@{'/mypage/reviewTestView?pno=' + ${pp.pno}}">후기 등록</a>
-        </td>
-    </tr>
-    </tbody>
-    <div>
-        <a th:href="@{/mypage/modify}"><!--<button type="submit">-->회원 정보 수정</a> <!-- a 태그랑 button 태그가 같이 있어서 일단 button은 지웠습니다 -->
-        <a th:href="@{/members/deleteok}"><!--<button type="submit">-->회원 탈퇴</a>
+<body>
+<div class="wrap">
+    <div class="cont" style="width : 70%;height: 80%;">
+        <div class="boardLogin">
+            <h1>나의 분양 게시판</h1>
+            <!--<h2><span style="color: #663399; ">나의 분양 게시판</span></h2>-->
+            <!-- 누르면 나의 분양 리스트를 보여주는 form이라고 생각해서 주석했씁니다
+            여기가 아니라 메인페이지에서 마이페이지 버튼을 눌렀을때 작동하는 form일거같습니다. by 임정후 -->
+            <!--<form th:action="@{/mypage/myParcel}" th:object="${mypageInfo}" method="post">-->
+            <table class="board">
+                <thead>
+                <tr>
+                    <th>제목</th>
+                    <th>글 내용</th>
+                    <th>닉네임</th>
+                    <th>후기 작성</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="pp : ${pList}">
+                    <td th:text="${pp.title}"></td>
+                    <td th:text="${pp.content}"></td>
+                    <td th:text="${pp.nickname}"></td>
+                    <td>
+                        <a th:href="@{'/mypage/reviewTestView?pno=' + ${pp.pno}}">후기 등록</a>
+                    </td>
+                </tr>
+                </tbody>
+                <div>
+                    <a th:href="@{/mypage/modify}"><!--<button type="submit">-->회원 정보 수정</a>
+                    <!-- a 태그랑 button 태그가 같이 있어서 일단 button은 지웠습니다 -->
+                    <a th:href="@{/members/deleteok}"><!--<button type="submit">-->회원 탈퇴</a>
+                </div>
+            </table>
+
+        </div>
     </div>
-</table>
 </div>
 <div th:replace="fragments/footer::footer"></div>
 </body>

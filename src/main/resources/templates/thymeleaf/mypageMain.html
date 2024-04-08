@@ -7,16 +7,28 @@
 </head>
 <div th:replace="fragments/header::header"></div>
 <body class="container">
-<div class="form-container">
-    <h1>마이 페이지</h1>
-    <p><span th:text="${id}"></span>님의 My Page</p>
-    <!--<form th:action ="@{/mypage/modify}" method="get">-->
-        <a th:href="@{/mypage/modify}">회원 정보 수정</a>
-        <a th:href="@{/mypage/myParcel}">나의 분양 게시판</a>
-        <a th:href="@{/mypage/mypageReview}">나의 후기 게시판</a>
-        <a th:href="@{/mypage/logout}">로그아웃</a>
-        <a th:href="@{/mypage/deleteConfirm}">회원 탈퇴</a>
-    <!--</form>-->
+<div class="wrap">
+    <div class="cont" style="width : 70%;height: 80%;">
+        <div class="boardLogin">
+                <h1>마이 페이지</h1>
+            <div class="board">
+                <div class="four">
+                    <a th:href="@{/mypage/modify}" class="item">회원 정보 수정</a>
+                    <a th:href="@{/mypage/myParcel}" class="item">나의 분양 게시판</a>
+                    <a th:href="@{/mypage/mypageReview}" class="item">나의 후기 게시판</a>
+                    <a th:href="@{/mypage/deleteConfirm}" class="item">회원 탈퇴</a>
+                </div>
+                <!--<h1>마이 페이지</h1>
+                <p><span th:text="${id}"></span>님의 My Page</p>
+                <form th:action ="@{/mypage/modify}" method="get">
+                <a th:href="@{/mypage/modify}" class="item">회원 정보 수정</a>
+                <a th:href="@{/mypage/myParcel}" class="item">나의 분양 게시판</a>
+                <a th:href="@{/mypage/mypageReview}" class="item">나의 후기 게시판</a>
+                <a th:href="@{/mypage/deleteConfirm}" class="item">회원 탈퇴</a>
+                </form>-->
+            </div>
+        </div>
+    </div>
 </div>
 <div th:replace="fragments/footer::footer"></div>
 </body>

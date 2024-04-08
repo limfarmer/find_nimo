@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" th:href="@{/css/cssStyle.css}">
@@ -20,4 +20,58 @@
 </form>
 <a th:href="@{http://localhost:8111/members/meminsert}">회원가입</a>
 </body>
+</html>-->
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/cssStyle.css}">
+</head>
+<body>
+<div class="wrap">
+    <div class="login">
+        <h2>니모를 찾아서</h2>
+        <form action="#" th:action="@{/members/loginOk}" method="post">
+            <!--<div class="login_sns">
+                <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href=""><i class="fab fa-twitter"></i></a></li>
+            </div>-->
+            <div class="login_id">
+                <h4>아이디</h4>
+                <!--<input type="email" name="" id="" placeholder="아이디">-->
+                <input type="text" id="id" name="id" placeholder="아이디" required/>
+            </div>
+            <div class="login_pw">
+                <h4>비밀번호</h4>
+                <!--<input type="password" name="" id="" placeholder="비밀번호">-->
+                <input type="password" id="pwd" name="pwd" placeholder="비밀번호" required/>
+            </div>
+            <!--
+                <div class="forgot_pw">
+                    <a href="">Forgot Password?</a>
+                </div>-->
+            <div class="submit">
+                <!--<input type="submit" value="로그인">-->
+                <input type="submit" value="로그인"></input>
+            </div>
+        </form>
+
+
+        <div class="login_etc">
+            <div class="checkbox">
+                <a th:href="@{http://localhost:8111/members/meminsert}">회원가입</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 </html>
+
+

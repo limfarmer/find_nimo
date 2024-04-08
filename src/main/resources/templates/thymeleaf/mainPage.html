@@ -2,71 +2,85 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" th:href="@{/css/cssStyle.css}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <meta charset="UTF-8">
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
     <title>Title</title>
 </head>
-<body class="container">
+<body>
 <div th:replace="fragments/header::header"></div>
-<h2>메인 페이지</h2>
-<div>
-    <h1>분양 테이블</h1>
-    <table>
-        <thead>
-        <tr>
-            <!--<th>pno</th> -->
-            <th>제목</th>
-            <th>글 내용</th>
-            <th>사진</th>
-            <th>글쓴이</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="pp,iterStat : ${plist}" th:if="${iterStat.index lt 5}">
-            <td th:text="${pp.pno}" th:name="pno" th:value="${pp.pno}" style="display: none;"></td>
-            <td>
-                <a th:href="@{'/parcel/parcel?pno=' + ${pp.pno}}" th:text="${pp.title}"></a>
-                <!--                여기서 detailPage 부분에 parcel 상세 페이지 링크 넣어주세요-->
-            </td>
-            <td th:text="${pp.content}"></td>
-            <td th:text="${pp.image}"></td>
-            <td th:text="${pp.nickname}"></td>
-        </tr>
-        <tr>
-            <td>
-                <a th:href="@{http://localhost:8111/parcel/pboard}">더 많은 분양글 보기</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<div>
-    <h1>후기 테이블</h1>
-    <table>
-        <thead>
-        <tr>
-            <th>제목</th>
-            <th>글내용</th>
-            <th>사진</th>
-            <th>글쓴이</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="review,iterStat : ${rlist}" th:if="${iterStat.index lt 5}">
-            <td>
-                <a th:href="@{/review/reviewDetail(rno=${review.rno})}" th:text="${review.reviewTitle}"></a>
-                <!-- a 태그로 후기 상세페이지 연결하는 a태그 -->
-            </td>
-            <td th:text="${review.reviewContent}"></td>
-            <td th:text="${review.reviewImage}"></td>
-            <td th:text="${review.reviewNickName}"></td>
-        </tr>
-        <tr>
-            <td>
-                <a th:href="@{http://localhost:8111/review/reviewBoard}">더 많은 후기글 보기</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+<div class="wrap">
+    <div>
+        <!--<div style="display:flex; width : 100%; justify-content: center;">
+            <h2 style="color : #fff;">메인 페이지</h2>
+        </div>-->
+        <div class="mainLogin">
+            <h1>분양 테이블</h1>
+            <div class ="" style="display:flex; width : 100%; justify-content: flex-end;" >
+                <a th:href="@{http://localhost:8111/parcel/pboard}">
+                    <span class="material-symbols-outlined" >add_circle</span>
+                </a>
+            </div>
+            <table style="border-radius: 30px;">
+                <thead>
+                <tr>
+                    <!--<th>pno</th> -->
+                    <th>제목</th>
+                    <th>글 내용</th>
+                    <th>글쓴이</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="pp,iterStat : ${plist}" th:if="${iterStat.index lt 5}">
+                    <td th:text="${pp.pno}" th:name="pno" th:value="${pp.pno}" style="display: none;"></td>
+                    <td>
+                        <a th:href="@{'/parcel/parcel?pno=' + ${pp.pno}}" th:text="${pp.title}"></a>
+                        <!--                여기서 detailPage 부분에 parcel 상세 페이지 링크 넣어주세요-->
+                    </td>
+                    <td th:text="${pp.content}"></td>
+                    <td th:text="${pp.nickname}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <!--<a th:href="@{http://localhost:8111/parcel/pboard}">더 많은 분양글 보기</a>-->
+        </div>
+        <div class="mainLogin">
+            <h1>후기 테이블</h1>
+            <div class ="" style="display:flex; width : 100%; justify-content: flex-end;" >
+                <a th:href="@{http://localhost:8111/review/reviewBoard}">
+                    <span class="material-symbols-outlined" >add_circle</span>
+                </a>
+            </div>
+            <table>
+                <thead>
+                <tr>
+                    <th>제목</th>
+                    <th>글내용</th>
+                    <th>글쓴이</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="review,iterStat : ${rlist}" th:if="${iterStat.index lt 5}">
+                    <td>
+                        <a th:href="@{/review/reviewDetail(rno=${review.rno})}" th:text="${review.reviewTitle}"></a>
+                        <!-- a 태그로 후기 상세페이지 연결하는 a태그 -->
+                    </td>
+                    <td th:text="${review.reviewContent}"></td>
+                    <td th:text="${review.reviewNickName}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <!--<a th:href="@{http://localhost:8111/review/reviewBoard}">더 많은 후기글 보기</a>-->
+        </div>
+    </div>
 </div>
 <div th:replace="fragments/footer::footer"></div>
 </body>

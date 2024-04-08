@@ -4,38 +4,41 @@
     <meta charset="UTF-8">
     <title>후기 작성</title>
     <link rel="stylesheet" th:href="@{/css/cssStyle.css}">
-    <div class = "headerMenuBar"> <!-- 헤더 메뉴바 -->
+    <div class="headerMenuBar"> <!-- 헤더 메뉴바 -->
 
     </div>
 </head>
 <body>
-<table>
-    <div class = "container">
-        <form th:action="@{/mypage/reviewTest}" th:object="${reviewTest}" method="post">
-            <div class = "title">
-                <h3>제목</h3>
-                <input type="text" id="reviewTitle" th:field="*{reviewTitle}" />
-            </div>
+<div class="wrap">
+    <div class="cont" style="width : 70%;height: 80%;">
+        <div class="boardLogin">
+            <div class ="box">
+                <form th:action="@{/mypage/reviewTest}" th:object="${reviewTest}" method="post">
+                    <div class="mTitle">
+                        <h3>제목</h3>
+                        <input type="text" id="reviewTitle" th:field="*{reviewTitle}"/>
+                    </div>
 
-            <div class = "content">
-                <h3>내용</h3>
-                <input type="text" id="reviewContent"  th:field="*{reviewContent}" />
-            </div>
+                    <div class="mContent">
+                        <h3>내용</h3>
+                        <input type="context" id="reviewContent" th:field="*{reviewContent}" />
+                    </div>
 
-            <div class = "image">
-                <h3>사진</h3>
-                <input type="file" id="reviewImage" th:field="*{reviewImage}" />
-            </div>
-            <div class ="reviewPno">
-                <input type="hidden" th:field="${reviewTest.reviewPno}" id="reviewPno" />
-            </div>
+                    <div class="image" style="margin-top: 5%;">
+                        <h3>사진</h3>
+                        <input type="file" id="reviewImage" th:field="*{reviewImage}"/>
+                    </div>
+                    <div class="reviewPno">
+                        <input type="hidden" th:field="${reviewTest.reviewPno}" id="reviewPno"/>
+                    </div>
 
-            <div class = "updateButton">
-                <button type="submit">후기 등록</button>
+                    <div class="submit" style="margin-top: 0;">
+                        <input type="submit" value="후기 등록"></input>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
-
-</table>
+</div>
 </body>
 </html>

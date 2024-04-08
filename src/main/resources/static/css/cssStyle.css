@@ -1,16 +1,18 @@
 table {
     border-collapse: collapse;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 th, td {
     border:1px solid #ccc;
 }
 td {
-    background-color: beige;
+    background-color: rgb(255 232 208);
 }
 
 thead {
-    background-color: cornflowerblue;
+    background-color: rgb(255, 77, 46);
     color: white;
 }
 
@@ -50,7 +52,7 @@ button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-/* 기본 스타일 초기화 */
+/* 헤더 css */
         * {
             margin: 0;
             padding: 0;
@@ -62,7 +64,7 @@ button[type="submit"]:hover {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            background-color: #333;
+            background-color: rgb(255, 77, 46);
             padding: 1rem;
             position: fixed;
             width : 100%;
@@ -93,3 +95,200 @@ button[type="submit"]:hover {
 /* 스크롤 시 배경 이미지가 고정됨 *//*
 
 }*/
+
+/* 로그인 화면 */
+
+HTML CSSResult Skip Results Iframe
+EDIT ON
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style: none;
+}
+
+.wrap {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background : linear-gradient(to left, rgb(255, 77, 46), rgb(255, 155, 47))
+
+}
+
+.login {
+  width: 30%;
+  height: 600px;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h2 {
+  color: tomato;
+  font-size: 2em;
+}
+
+
+.login_id {
+  margin-top: 20px;
+  width: 80%;
+  color : tomato;
+}
+
+.login_id input {
+  width: 100%;
+  height: 50px;
+  border-radius: 30px;
+  margin-top: 10px;
+  padding: 0px 20px;
+  border: 1px solid lightgray;
+  outline: none;
+}
+
+.login_pw {
+  margin-top: 20px;
+  width: 80%;
+  color : tomato;
+}
+
+.login_pw input {
+  width: 100%;
+  height: 50px;
+  border-radius: 30px;
+  margin-top: 10px;
+  padding: 0px 20px;
+  border: 1px solid lightgray;
+  outline: none;
+}
+
+.login_etc {
+  padding: 10px;
+  width: 80%;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.submit {
+  margin-top: 50px;
+  width: 80%;
+}
+.submit input {
+  width: 100%;
+  height: 50px;
+  border: 0;
+  outline: none;
+  border-radius: 40px;
+  background: linear-gradient(to left, rgb(255, 77, 46), rgb(255, 155, 47));
+  color: white;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+}
+
+.checkbox{
+    align-items: center;
+}
+
+/* 공통 테이블 디자인 메인 게시판 css*/
+
+.mainLogin {
+  width: 100%;
+  height: 400px;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+/* 게시판 */
+.boardLogin {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+.boardLogin table{
+height: 80%;
+width: 80%;
+}
+
+.board{
+height: 80%;
+width: 80%;
+}
+/* 마이페이지 버튼 네개 나누는 css*/
+.four {
+  display: flex;
+  flex-wrap: wrap;
+      width: 100%;
+      height: 100%;
+}
+
+.item {
+  flex: 1 1 calc(50% - 20px); /* 버튼 간의 간격을 고려한 크기 지정 */
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  margin: 10px; /* 각 버튼 주위에 10px의 공간 추가 */
+}
+
+/* 마이페이지 회원 정보 수정*/
+.mypageModify{
+    width: 100%;
+      height: 50px;
+      border-radius: 30px;
+      /*margin-top: 10px;
+      padding: 0px 20px;*/
+      border: 1px solid lightgray;
+      outline: none;
+}
+/* 마이페이지 분양 후기 작성 */
+.box{
+    height: 80%;
+    width: 80%;
+    padding: 10%;
+}
+
+.mContent{
+    height: 350px;
+}
+
+.mContent input{
+    width: 100%;
+    height: 100%;
+}
+.mTitle{
+    width: 100%;
+}
+.mTitle input{
+    width: 100%;
+}

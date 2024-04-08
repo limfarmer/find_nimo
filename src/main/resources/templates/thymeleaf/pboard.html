@@ -6,36 +6,37 @@
     <title>Title</title>
 </head>
 <div th:replace="fragments/header::header"></div>
-<body class="container">
-<h1>분양 게시판</h1>
-<p>안녕하세요, <span th:text="${id}"></span>님!</p>
-<a th:href="@{http://localhost:8111/parcel/parcelInsert}">글쓰기</a>
-<table >
-    <thead>
-    <tr>
-        <th>제목</th>
-        <th>글 내용</th>
-        <th>image</th>
-        <th>닉네임</th>
-
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="pp : ${plist}">
-        <td style="display: none;"> <!-- 숨김 스타일 -->
-            <span th:text="${pp.pno}"></span>
-        </td>
-        <td>
-            <a th:href="@{'/parcel/parcel?pno=' + ${pp.pno}}" th:text="${pp.title}"></a>
-            <!--여기서 detailPage 부분에 parcel 상세 페이지 링크 넣어주세요-->
-        </td>
-        <td th:text="${pp.content}"></td>
-        <td th:text="${pp.image}"></td>
-        <td th:text="${pp.nickname}"></td>
-
-    </tr>
-    </tbody>
-</table>
+<body>
+<div class="wrap">
+    <div class ="cont" style="width : 70%;height: 80%;">
+        <div class="boardLogin">
+            <h1>분양 게시판</h1>
+            <a th:href="@{http://localhost:8111/parcel/parcelInsert}">글쓰기</a>
+            <table class ="board">
+                <thead>
+                <tr>
+                    <th>제목</th>
+                    <th>글 내용</th>
+                    <th>글쓴이</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="pp : ${plist}">
+                    <td style="display: none;"> <!-- 숨김 스타일 -->
+                        <span th:text="${pp.pno}"></span>
+                    </td>
+                    <td>
+                        <a th:href="@{'/parcel/parcel?pno=' + ${pp.pno}}" th:text="${pp.title}"></a>
+                        <!--여기서 detailPage 부분에 parcel 상세 페이지 링크 넣어주세요-->
+                    </td>
+                    <td th:text="${pp.content}"></td>
+                    <td th:text="${pp.nickname}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 <div th:replace="fragments/footer::footer"></div>
 </body>
 </html>
