@@ -25,7 +25,7 @@
         <div class="mainLogin">
             <h1>분양 테이블</h1>
             <div class ="" style="display:flex; width : 100%; justify-content: flex-end;" >
-                <a th:href="@{http://localhost:8111/parcel/pboard}">
+                <a th:href="@{'/parcel/pboard'}">
                     <span class="material-symbols-outlined" >add_circle</span>
                 </a>
             </div>
@@ -55,7 +55,7 @@
         <div class="mainLogin">
             <h1>후기 테이블</h1>
             <div class ="" style="display:flex; width : 100%; justify-content: flex-end;" >
-                <a th:href="@{http://localhost:8111/review/reviewBoard}">
+                <a th:href="@{'/review/reviewBoard'}">
                     <span class="material-symbols-outlined" >add_circle</span>
                 </a>
             </div>
@@ -70,7 +70,7 @@
                 <tbody>
                 <tr th:each="review,iterStat : ${rlist}" th:if="${iterStat.index lt 5}">
                     <td>
-                        <a th:href="@{/review/reviewDetail(rno=${review.rno})}" th:text="${review.reviewTitle}"></a>
+                        <a th:href="@{'/review/reviewDetail?rno='+ ${review.rno}}" th:text="${review.reviewTitle}"></a>
                         <!-- a 태그로 후기 상세페이지 연결하는 a태그 -->
                     </td>
                     <td th:text="${review.reviewContent}"></td>
