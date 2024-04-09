@@ -67,8 +67,7 @@ public class MyPageDao {
         Common.close(pstmt);
         Common.close(conn);
     }
-
-    // 임정후 : 이 메소드 화면/컨트롤 구현 및 디버깅 필요합니다!
+    // 내가 분양 누른 게시판
     public List<ParcelVo> showMyParcelInfo(String SessID) {
         List<ParcelVo> plist = new ArrayList<>();
         String sql = "select p.title, p.content, p.pno, p.image, p.status, p.members_id, m.nickname from FAMILY f join PARCEL p on f.parcel_pno = p.pno join MEMBERS m on p.members_id = m.id where f.members_id= '"+SessID+"'";

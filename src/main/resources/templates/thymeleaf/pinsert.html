@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>New Employee</title>
+    <title>분양 작성</title>
     <link rel="stylesheet" th:href="@{/css/cssStyle.css}">
 </head>
-<body class="container">
-<div class="form-container">
-    <h1>분양글 등록</h1>
-    <form th:action="@{/parcel/parcelinsertt}" th:object="${pinsert}" method="post">
-        <div>
-            <label for="title">제목 입력</label>
-            <input type="text" id="title" th:field="*{title}"/>
+<body>
+<div class="wrap">
+    <div class="cont" style="width : 70%;height: 80%;">
+        <div class="boardLogin">
+            <div class="box">
+                <h1>분양글 등록</h1>
+                <form th:action="@{/parcel/parcelinsertt}" th:object="${pinsert}" method="post">
+                    <div class="rTitle" style="border : 0px;">
+                        <label for="title">제목 입력</label>
+                        <input type="text" id="title" th:field="*{title}"/>
+                    </div>
+                    <div class="rContent" style="border : 0px;">
+                        <label for="content">내용 입력해주세요</label>
+                        <input type="text" id="content" th:field="*{content}"/>
+                    </div>
+                    <div>
+                        <label for="image">이미지</label>
+                        <input type="file" id="image" th:field="*{image}"/>
+                    </div>
+                    <div>
+                        <button type="submit">등록</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div>
-            <label for="content">내용 입력해주세요</label>
-            <input type="text" id="content" th:field="*{content}"/>
-        </div>
-        <div>
-            <label for="image">이미지</label>
-            <input type="file" id="image" th:field="*{image}"/>
-        </div>
-        <div>
-            <button type="submit">등록</button>
-        </div>
-    </form>
+    </div>
 </div>
 </body>
 </html>

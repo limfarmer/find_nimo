@@ -16,12 +16,12 @@
             <div class ="box">
                 <form th:action="@{/mypage/reviewTest}" th:object="${reviewTest}" method="post">
                     <div class="mTitle">
-                        <h3>제목</h3>
+                        <h3>제목 입력</h3>
                         <input type="text" id="reviewTitle" th:field="*{reviewTitle}"/>
                     </div>
 
-                    <div class="mContent">
-                        <h3>내용</h3>
+                    <div class="mContent" style="border : 0px;">
+                        <h3>내용 입력해주세요</h3>
                         <input type="text" id="reviewContent" th:field="*{reviewContent}" />
                     </div>
 

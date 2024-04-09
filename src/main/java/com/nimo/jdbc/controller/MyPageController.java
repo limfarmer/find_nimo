@@ -38,7 +38,7 @@ public class MyPageController {
     public String mypageUpdate(@ModelAttribute("mypageInfo") AccountVo updateInfo, HttpSession sess) {
         String getId = (String) sess.getAttribute("id");
         myPageDao.updateMypage(updateInfo,getId);
-        return "thymeleaf/accountModifyRst";
+        return "redirect:/mypage/mypageMain";
     }
     // 나의 분양 게시판을 눌렀을때 내가 쓴 분양 글들을 보여주는 컨트롤러
     @GetMapping("/myParcel")

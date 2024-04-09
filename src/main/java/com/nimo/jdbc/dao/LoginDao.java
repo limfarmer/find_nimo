@@ -14,7 +14,7 @@ public class LoginDao {
     ResultSet rs = null;
     Scanner sc = new Scanner(System.in);
 
-    public AccountVo memberSelect(String oldId) {
+    /*public AccountVo memberSelect(String oldId) {
         AccountVo vo = new AccountVo();
         try {
             conn = Common.getConnection();
@@ -37,7 +37,7 @@ public class LoginDao {
             e.printStackTrace();
         }
         return vo;
-    }
+    }*/
 
     public void memberInsert(AccountVo accountVo) {
         String sql = "insert into MEMBERS (ID, PW, EMAIL, NICKNAME, PHONE) VALUES (?,?,?,?,?)";
@@ -46,9 +46,9 @@ public class LoginDao {
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, accountVo.getID());
             pstmt.setString(2, accountVo.getPW());
-            pstmt.setString(3, accountVo.getPHONE());
-            pstmt.setString(4, accountVo.getEMAIL());
-            pstmt.setString(5, accountVo.getNICKNAME());
+            pstmt.setString(3, accountVo.getEMAIL());
+            pstmt.setString(4, accountVo.getNICKNAME());
+            pstmt.setString(5, accountVo.getPHONE());
             pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

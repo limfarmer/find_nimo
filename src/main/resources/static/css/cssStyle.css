@@ -256,9 +256,11 @@ width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  background-color : rgb(255, 77, 46);
   text-decoration: none;
-  color: inherit;
   margin: 10px; /* 각 버튼 주위에 10px의 공간 추가 */
+  font-size: large;
 }
 
 /* 마이페이지 회원 정보 수정*/
@@ -275,16 +277,20 @@ width: 80%;
 .box{
     height: 80%;
     width: 80%;
-    padding: 10%;
 }
-
+/* 분양 작성*/
 .mContent{
-    height: 350px;
+    height : 350px;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
 }
 
 .mContent input{
     width: 100%;
     height: 100%;
+
 }
 .mTitle{
     width: 100%;
@@ -292,3 +298,63 @@ width: 80%;
 .mTitle input{
     width: 100%;
 }
+.mImage{
+    width: 300px;
+      height: 150px;
+      display: flex;
+      margin-top : 10px;
+}
+
+/* 리뷰 상세 */
+.rContent{
+    width: 100%;
+    height : 350px;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+}
+
+.rContent input{
+    width: 100%;
+    height: 100%;
+
+}
+.rTitle{
+    width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+}
+.rTitle input{
+    width: 100%;
+}
+.rImage{
+    width: 300px;
+      height: 150px;
+      display: flex;
+      margin : 10px;
+}
+/* foot */
+
+/* 기본 스타일 초기화 */
+
+        /* 네비게이션바 스타일 */
+        .footerbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: rgb(255, 77, 46);
+            padding: 1rem;
+            position: fixed;
+            width : 100%;
+            bottom : 0;
+
+        }
+
+        .footerbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+        }

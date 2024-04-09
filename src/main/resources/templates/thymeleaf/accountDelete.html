@@ -5,33 +5,31 @@
     <meta charset="UTF-8">
     <title>니모를 찾아서</title>
 </head>
-<body class="container">
-<h1>마이 페이지</h1>
-<div class="form-container">
-    <h2><span style="color:blue;">정말로 회원 탈퇴하시겠습니까?</span></h2>
-    <form action="#" th:action="@{/mypage/deleteAccount}" th:object ="${deleteMem}" method="post">
-        <div>
-            삭제할 계정의 비밀번호를 입력해주세요.
-            <div>
-                <label for="ID">ID : </label>
-                <input type="text" id="ID" th:field="${deleteMem.ID}" readonly="readonly"/>
-                <!--<input type="hidden" th:field="${reviewTest.reviewPno}" id="reviewPno" />-->
+<body>
+<div class="wrap">
+    <div class="login">
+        <h2><span style="color: #d2691e; ">마이 페이지</span></h2>
+        <span style="color:#d2691e;">정말로 회원 탈퇴하시겠습니까?</span>
+        <form action="#" th:action="@{/mypage/deleteAccount}" th:object="${deleteMem}" method="post">
+            <div class="login_id">
+                삭제할 계정의 비밀번호를 입력해주세요.
+                <div>
+                    <h4>아이디</h4>
+                    <input type="text" id="ID" th:field="${deleteMem.ID}" readonly="readonly"/>
+                    <!--<input type="hidden" th:field="${reviewTest.reviewPno}" id="reviewPno" />-->
+                </div>
+                <div class="login_pw" style="margin-top: 0; width: 100%;">
+                    <h4>비밀번호 : </h4>
+                    <input type="password" id="pw" th:field="*{PW}" required/>
+                </div>
+
+                <div class="submit" style="margin-top: 0; width: 100%;">
+                    <input type="submit" value="회원 탈퇴" style="width: 60%;"></input>
+                </div>
+                <a th:href="@{/mypage/mypageMain}">마이 페이지</a>
             </div>
-            <div>
-                <label for="pw">비밀번호 : </label>
-                <input type="password" id="pw" th:field="*{PW}" required/>
-            </div>
-<!--            <div>-->
-<!--                                <th block th:switch="${pw}">-->
-<!--                                    <span th:case = "${true}">본인 확인되었습니다. 탈퇴 버튼을 눌러주세요.</span>-->
-<!--                                    <span th:case = "${false}">잘못 입력하셨습니다. 탈퇴할 수 없습니다.</span>-->
-<!--                                </th block>-->
-<!--            </div>-->
-            <button type="submit">회원 탈퇴</button>
-        </div>
-        <a th:href="@{/mypage/mypageMain}">마이 페이지</a>
-    </form>
-</div>
+        </form>
+    </div>
 </div>
 </body>
 </html>

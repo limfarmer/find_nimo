@@ -13,14 +13,14 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/members")
 public class LoginController {
     // 승용님이 한 로그인 메소드
-    @GetMapping("/membersselect")
+    /*@GetMapping("/membersselect")
     public String selectMembers(Model model) {
         LoginDao loginDao = new LoginDao();
         String id = "pkmm";
         AccountVo accountVoList = loginDao.memberSelect(id);
         model.addAttribute("memberslist", accountVoList);
         return "thymeleaf/membersBoard";
-    }
+    }*/
     @GetMapping("/login")
     public String loginIdPw(Model model){
         LoginDao loginDao = new LoginDao();

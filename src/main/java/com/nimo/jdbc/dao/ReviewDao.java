@@ -63,7 +63,7 @@ public class ReviewDao {
                 String content = rs.getString("content");
                 String image = rs.getString("image");
                 if (image == null) {
-                    image = "이미지가 없습니다"; // 짱구 or 니모(이미지가 없다는) 이미지 경로 넣어야됨
+                    image = "../image/nimo.jpg"; // 짱구 or 니모(이미지가 없다는) 이미지 경로 넣어야됨
                 }
                 String ID = rs.getString("members_id");
                 int pno = rs.getInt("parcel_pno");
@@ -112,7 +112,7 @@ public class ReviewDao {
                 String content = rs.getString("content");
                 String image = rs.getString("image");
                 if (image == null) {
-                    image = "이미지가 없습니다"; // 짱구 or 니모(이미지가 없다는) 이미지 경로 넣어야됨
+                    image = "../image/nimo.jpg";
                 }
                 String ID = rs.getString("members_id");
                 int pno = rs.getInt("parcel_pno");
