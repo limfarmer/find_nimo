@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .header{
+/*       background-image: ; */
+    }
+  </style>
   <title>니모를 찾아서</title>
 </head>
 <body>
