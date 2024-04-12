@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>니모를 찾아서</title>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=tomato&height=200&section=header&text=니모를 찾아조!&fontSize=90" />
 </head>
 <body>
  <div>
