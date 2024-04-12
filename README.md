@@ -6,7 +6,8 @@
 </head>
 <body>
   <div>
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=tomato&height=200&section=header&text=니모를 찾아조!&fontSize=90" />
+    <img src="https://capsule-render.vercel.app/api?type=wave&color=tomato&height=300&section=header&text=니모를%20찾아조!&fontSize=90" />
+
   </div>
  <div>
       <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white">
