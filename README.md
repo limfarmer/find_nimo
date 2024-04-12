@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=tomato&height=200&section=header&text=니모를 찾아조!&fontSize=90" />
 </head>
 <body>
+  <div>
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=tomato&height=200&section=header&text=니모를 찾아조!&fontSize=90" />
+  </div>
  <div>
       <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white">
       <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=Oracle&logoColor=white">
