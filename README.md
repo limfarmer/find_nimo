@@ -7,9 +7,10 @@
 <body>
   <div>
     <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=니모를%20찾아조!&fontSize=90" />
+    <h2>http://localhost:8111/members/login</h2>
 
   </div>
- <div display="center">
+ <div text-align:center ;>
       <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white">
       <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=Oracle&logoColor=white">
       <img src="https://img.shields.io/badge/Thymeleaf-%23005C0F.svg?style=for-the-badge&logo=Thymeleaf&logoColor=white">
