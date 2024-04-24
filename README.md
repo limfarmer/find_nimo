@@ -28,7 +28,7 @@
     </p>
   </div>
   <div>
-    <h2>프로젝트 기능 소개</h2>
+    <h2>🐱‍👤프로젝트 기능 소개</h2>
 <!--     // -->
     <p>
       <h3>1. 로그인 페이지</h3>
@@ -104,7 +104,7 @@
   </p>
   </div>
   <div>
-    <h2>팀원</h2>
+    <h2>😎팀원</h2>
     <p>
 ## Team
 |<img src="https://avatars.githubusercontent.com/u/129802296?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/161571595?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/162107516?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/129915370?v=4" width="150" height="150"/>|
