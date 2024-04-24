@@ -20,7 +20,7 @@
   <div>
     <h2>Spring MVC</h2>
     <p>
-      <img src="https://github.com/limfarmer/find_nimo/assets/129915370/5f003ff7-d19a-42a9-a3ae-172c637c7aeb">
+      <img src="https://github.com/limfarmer/find_nimo/assets/129915370/5c44308c-c302-448c-9467-c42cee2bb962">
     </p>
   </div>
   
