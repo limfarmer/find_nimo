@@ -20,6 +20,9 @@
   <div>
     <h2>Spring MVC</h2>
     <p>
+      MVC 패턴은 어플리케이션을 세 가지 영역, 즉 모델(Model), 뷰(View), 컨트롤러(Controller)로 구분하여 작업을 분리하는 웹 어플리케이션 개발 방법론입니다. 저희는 이번 
+    </p>
+    <p>
       <img src="https://github.com/limfarmer/find_nimo/assets/129915370/5c44308c-c302-448c-9467-c42cee2bb962">
     </p>
   </div>
