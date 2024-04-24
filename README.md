@@ -49,7 +49,7 @@
       <p>
         로그인 후 이동하는 페이지로 Header와 Footer를 적용해 다른 페이지로 이동 할 수 있게 구현 했습니다. Footer에는 로그아웃 기능을 넣어 로그아웃시 세션에 저장된 아이디 값을 지우고 다시 로그인 페이지로 이동하게 됩니다.
       </p>
-      <img src="https://github.com/limfarmer/find_nimo/assets/129915370/29eb2afb-d86d-40b1-965d-c0791708e6e2">
+      <img src="https://github.com/limfarmer/find_nimo/assets/129915370/cc9f873d-969c-4423-890f-6ec51d19736d">
     </p>
 <!--     // -->
     <p>
