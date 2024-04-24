@@ -106,10 +106,10 @@
   <div>
     <h2>팀원</h2>
     <p>
-      ## Team
+## Team
 |<img src="https://avatars.githubusercontent.com/u/129802296?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/161571595?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/162107516?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/129915370?v=4" width="150" height="150"/>|
-|:-:|:-:|:-:|:-:|
-|[@limfarmer](https://github.com/limfarmer)|[@lhw9097](https://github.com/lhw9097)|[@tmddyddl](https://github.com/tmddyddl)|[@leehal](https://github.com/leehal)|
+<!-- |:-:|:-:|:-:|:-:|
+|[@limfarmer](https://github.com/limfarmer)|[@lhw9097](https://github.com/lhw9097)|[@tmddyddl](https://github.com/tmddyddl)|[@leehal](https://github.com/leehal)| -->
     </p>
   </div>
   
