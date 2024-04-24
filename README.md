@@ -20,7 +20,7 @@
   <div>
     <h2><span>💿</span>Spring MVC</h2>
     <p>
-      MVC 패턴은 어플리케이션을 세 가지 영역, 즉 <span style="color: RGB(0,0,255);">모델(Model)</span>, <span> 뷰(View)</span> , <span>컨트롤러(Controller)</span>  로 구분하여 작업을 분리하는 웹 어플리케이션 개발 방법론입니다. 저희는 이번 Model은 JDBC를 선택했고 그 중 Oracle DB를 사용했습니다.
+      MVC 패턴은 어플리케이션을 세 가지 영역, 즉 <span style="color: 0000ff;">모델(Model)</span>, <span> 뷰(View)</span> , <span>컨트롤러(Controller)</span>  로 구분하여 작업을 분리하는 웹 어플리케이션 개발 방법론입니다. 저희는 이번 Model은 JDBC를 선택했고 그 중 Oracle DB를 사용했습니다.
     </p>
     <p>
       <img src="https://github.com/limfarmer/find_nimo/assets/129915370/5c44308c-c302-448c-9467-c42cee2bb962">
