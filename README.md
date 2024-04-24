@@ -33,9 +33,13 @@
       <h4>1. 로그인 페이지</h4>
       <h5>1. 로그인</h5>
       <p>
-      첫 화면 페이지입니다. 아이디와 비밀번호를 입력받고 아이디와 비밀번호가 일치할 경우 세션에 해당 아이디를 저장하는 방식을 통해 구현 했습니다. 하단의 회원가입 a 태그를 클릭시 회원가입을 할 수 있습니다.
+      첫 화면 페이지입니다. 아이디와 비밀번호를 입력받고 아이디와 비밀번호가 일치할 경우 세션에 해당 아이디를 저장하는 방식을 통해 구현 했습니다.
       </p>
       <img src="https://github.com/limfarmer/find_nimo/assets/129915370/1be9db82-e99d-407b-ab40-e4fb9f4e8ad3">
+    <h5>2. 회원가입</h5>
+    <p>
+      아이디와 비밀번호가 없을 시 로그인 페이지 하단의 회원가입을 누르면 회원가입 페이지로 이동하여 회원가입을 진행할 수 있습니다.
+    </p>
     <img src="https://github.com/limfarmer/find_nimo/assets/129915370/25b5f74f-52b6-4f38-b163-1d11b9acf7f9">
     </p>
     <p>
@@ -47,11 +51,17 @@
     </p>
     <p>
       <h4>3. 분양 페이지</h4>
+      <h5>1. 분양 전체 페이지</h5>
       <p>
         아직 분양이 안된 반려동물의 전체 리스트를 보여주는 페이지로 제목을 클릭 시 해당 글의 상세 페이지로 이동하게 됩니다.
       </p>
       <img src="https://github.com/limfarmer/find_nimo/assets/129915370/522ace50-74c7-4f83-8e10-eac99fa997b0">
     </p>
+    <h5>2. 분양 상세 페이지</h5>
+    <p>
+      상세페이지 하단의 분양받기 버튼을 클릭시 분양이 완료되어 전체페이지에 더이상 보이지 않으며 마이페이지의 내가 분양한 리스트에 추가가 됩니다.
+    </p>
+    <img src"https://github.com/limfarmer/find_nimo/assets/129915370/07fde7b1-9eeb-4d58-b0bf-4f9b2da958cd">
   </div>
   
 <!-- <img src="https://github.com/limfarmer/find_nimo/assets/129915370/13e91c1d-98e6-4f6f-9ec8-a9c92fa2cd09"> -->
