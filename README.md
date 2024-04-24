@@ -5,7 +5,7 @@
 
   </div>
  <div  align=center>
-   <p> 사용한 언어와 기능들 </p>
+   <p>📚 Tech Stack 📚 </p>
       <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white">
       <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=Oracle&logoColor=white">
       <img src="https://img.shields.io/badge/Thymeleaf-%23005C0F.svg?style=for-the-badge&logo=Thymeleaf&logoColor=white">
