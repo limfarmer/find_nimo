@@ -35,7 +35,6 @@
         첫 화면 페이지입니다. 아이디와 비밀번호를 입력받고 아이디와 비밀번호가 일치할 경우 세션에 해당 아이디를 저장하는 방식을 통해 구현 했습니다.
       </p>
       <img src="https://github.com/limfarmer/find_nimo/assets/129915370/1be9db82-e99d-407b-ab40-e4fb9f4e8ad3">
-
     </p>
   </div>
   
