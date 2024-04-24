@@ -36,7 +36,6 @@
       </p>
       <img src="https://github.com/limfarmer/find_nimo/assets/129915370/1be9db82-e99d-407b-ab40-e4fb9f4e8ad3">
     <img src="https://github.com/limfarmer/find_nimo/assets/129915370/25b5f74f-52b6-4f38-b163-1d11b9acf7f9">
-
     </p>
     <p>
       <h4>2. 메인 페이지</h4>
