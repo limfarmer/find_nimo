@@ -112,7 +112,10 @@
 |[@limfarmer](https://github.com/limfarmer)|[@lhw9097](https://github.com/lhw9097)|[@tmddyddl](https://github.com/tmddyddl)|[@leehal](https://github.com/leehal)| -->
     </p>
   </div>
-  
+  ## Team
+|<img src="https://avatars.githubusercontent.com/u/129802296?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/161571595?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/162107516?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/129915370?v=4" width="150" height="150"/>|
+|:-:|:-:|:-:|:-:|
+|[@limfarmer](https://github.com/limfarmer)|[@lhw9097](https://github.com/lhw9097)|[@tmddyddl](https://github.com/tmddyddl)|[@leehal](https://github.com/leehal)|
 <!-- <img src="https://github.com/limfarmer/find_nimo/assets/129915370/13e91c1d-98e6-4f6f-9ec8-a9c92fa2cd09"> -->
 
 
