@@ -44,6 +44,13 @@
       </p>
       <img src="https://github.com/limfarmer/find_nimo/assets/129915370/29eb2afb-d86d-40b1-965d-c0791708e6e2">
     </p>
+    <p>
+      <h4>3. 분양 페이지</h4>
+      <p>
+        아직 분양이 안된 반려동물의 전체 리스트를 보여주는 페이지로 제목을 클릭 시 해당 글의 상세 페이지로 이동하게 됩니다.
+      </p>
+      <img src="https://github.com/limfarmer/find_nimo/assets/129915370/522ace50-74c7-4f83-8e10-eac99fa997b0">
+    </p>
   </div>
   
 <!-- <img src="https://github.com/limfarmer/find_nimo/assets/129915370/13e91c1d-98e6-4f6f-9ec8-a9c92fa2cd09"> -->
