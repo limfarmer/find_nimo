@@ -86,22 +86,31 @@
       수정 전 정보를 보여주며 수정 할 수 있게 합니다. 하단의 수정완료 버튼 클릭시 수정이 됩니다
     </p>
     <img src="https://github.com/limfarmer/find_nimo/assets/129915370/d4559a2b-aac3-44fd-8df4-e978ea9bd0ba">
-    <h5>나의 분양 게시판</h5>
+    <h5>3. 나의 분양 게시판</h5>
     <p>
       내가 분양한 반려동물들의 전체 리스트는 보여주는 페이지입니다. 후기등록을 누르면 후기 등록 페이지로 이동하며 정보 입력 후 후기등록 버튼을 누르면 후기가 등록되어 나의 후기 게시판과 후기 페이지에 추가 됩니다.
     </p>
     <img src="https://github.com/limfarmer/find_nimo/assets/129915370/0473dc97-5770-49f2-87c9-c98ba98d77da">
-    <h5>나의 후기 게시판</h5>
+    <h5>4. 나의 후기 게시판</h5>
     <p>
       내가 등록한 후기글만 보여주는 게시판입니다. 제목을 클릭 시 해당 분양글의 상세페이지로 이동하게 됩니다.
     </p>
     <img src="https://github.com/limfarmer/find_nimo/assets/129915370/90e1b874-be43-4537-b7ad-85e23a6ee7ae">
-    <h5>회원 탈퇴</h5>
+    <h5>5. 회원 탈퇴</h5>
     <p>
       회원탈퇴 페이지는 비밀번호를 한 번 더 입력하고 비밀번호가 맞을 경우 탈퇴가 가능합니다. 탈퇴 성공시 로그인 페이지로 이동되고 비밀번호가 틀릴시 다시 마이페이지로 이동됩니다.
     </p>
     <img src="https://github.com/limfarmer/find_nimo/assets/129915370/fcccccd0-b6ae-4fb6-b35e-486973703ef5">
   </p>
+  </div>
+  <div>
+    <h2>팀원</h2>
+    <p>
+      ## Team
+|<img src="https://avatars.githubusercontent.com/u/129802296?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/161571595?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/162107516?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/129915370?v=4" width="150" height="150"/>|
+|:-:|:-:|:-:|:-:|
+|[@limfarmer](https://github.com/limfarmer)|[@lhw9097](https://github.com/lhw9097)|[@tmddyddl](https://github.com/tmddyddl)|[@leehal](https://github.com/leehal)|
+    </p>
   </div>
   
 <!-- <img src="https://github.com/limfarmer/find_nimo/assets/129915370/13e91c1d-98e6-4f6f-9ec8-a9c92fa2cd09"> -->
