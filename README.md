@@ -27,6 +27,17 @@
       <img src="https://github.com/limfarmer/find_nimo/assets/129915370/2567fa7f-0563-49f3-bf10-a5dbc24b90de">
     </p>
   </div>
+  <div>
+    <h2>프로젝트 기능 소개</h2>
+    <p>
+      <h4>1.로그인 페이지</h4>
+      <p>
+        첫 화면 페이지입니다. 아이디와 비밀번호를 입력받고 아이디와 비밀번호가 일치할 경우 세션에 해당 아이디를 저장하는 방식을 통해 구현 했습니다.
+      </p>
+      <img src="https://github.com/limfarmer/find_nimo/assets/129915370/1be9db82-e99d-407b-ab40-e4fb9f4e8ad3">
+
+    </p>
+  </div>
   
 <!-- <img src="https://github.com/limfarmer/find_nimo/assets/129915370/13e91c1d-98e6-4f6f-9ec8-a9c92fa2cd09"> -->
 
