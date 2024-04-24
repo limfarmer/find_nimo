@@ -62,6 +62,12 @@
       상세페이지 하단의 분양받기 버튼을 클릭시 분양이 완료되어 전체페이지에 더이상 보이지 않으며 마이페이지의 내가 분양한 리스트에 추가가 됩니다.
     </p>
     <img src="https://github.com/limfarmer/find_nimo/assets/129915370/07fde7b1-9eeb-4d58-b0bf-4f9b2da958cd">
+    <h4>4. 후기 페이지</h4>
+      <p>
+        분양이 된 동물들 중 입양자가 쓴 후기 전체 리스트를 보여주는 페이지입니다. 제목을 클릭 시 후기 상세페이지로 이동하고 하단의 뒤로가기 클릭 시 다시 후기페이지로 이동하게 됩니다.
+      </p>
+      <img src="https://github.com/limfarmer/find_nimo/assets/129915370/77a0751e-58da-4f09-a1cf-4ecb4b75dd2f">
+    </p>
   </div>
   
 <!-- <img src="https://github.com/limfarmer/find_nimo/assets/129915370/13e91c1d-98e6-4f6f-9ec8-a9c92fa2cd09"> -->
