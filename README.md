@@ -30,11 +30,20 @@
   <div>
     <h2>프로젝트 기능 소개</h2>
     <p>
-      <h4>1.로그인 페이지</h4>
+      <h4>1. 로그인 페이지</h4>
       <p>
-        첫 화면 페이지입니다. 아이디와 비밀번호를 입력받고 아이디와 비밀번호가 일치할 경우 세션에 해당 아이디를 저장하는 방식을 통해 구현 했습니다.
+        첫 화면 페이지입니다. 아이디와 비밀번호를 입력받고 아이디와 비밀번호가 일치할 경우 세션에 해당 아이디를 저장하는 방식을 통해 구현 했습니다. 하단의 회원가입 a 태그를 클릭시 회원가입을 할 수 있습니다.
       </p>
       <img src="https://github.com/limfarmer/find_nimo/assets/129915370/1be9db82-e99d-407b-ab40-e4fb9f4e8ad3">
+    <img src="https://github.com/limfarmer/find_nimo/assets/129915370/25b5f74f-52b6-4f38-b163-1d11b9acf7f9">
+
+    </p>
+    <p>
+      <h4>2. 메인 페이지</h4>
+      <p>
+        로그인 후 이동하는 페이지로 Header와 Footer를 적용해 다른 페이지로 이동 할 수 있게 구현 했습니다. Footer에는 로그아웃 기능을 넣어 로그아웃시 세션에 저장된 아이디 값을 지우고 다시 로그인 페이지로 이동하게 됩니다.
+      </p>
+      <img src="https://github.com/limfarmer/find_nimo/assets/129915370/29eb2afb-d86d-40b1-965d-c0791708e6e2">
     </p>
   </div>
   
